@@ -23,8 +23,8 @@ In this section we will be generating phylogenetic trees from whole-genome polym
 
 Open up a new seaview window (by typing `seaview` on the terminal). Select File -> Open Phylip and choose `uganda_gen.fasta`
 
-![seaview](img/img_1.jpg)
 <figure markdown>
+![seaview](img/img_1.jpg)
     <figcaption>Figure 1 Phylip-formatted sequence alignment of 51 Mtb isolates</figcaption>
 </figure>
 
@@ -33,14 +33,14 @@ The alignment should appear in the seaview main window (Figure 1). The nucleotid
 
 To launch the phylogenetic analysis go to Trees -> Distance Methods. Select the Neighbor-joining method, Jukes-Cantor distance and Bootstrap with 100 replicates (see Figure 2)
 
-![seaview](img/img_2.jpg)
 <figure markdown>
+![seaview](img/img_2.jpg)
     <figcaption>Figure 2 Distance analysis window</figcaption>
 </figure>
 
 
-![seaview](img/img_3.jpg)
 <figure markdown>
+![seaview](img/img_3.jpg)
     <figcaption>Figure 3 Neighbour-joining phylogenetic tree of 51 Mtb isolates</figcaption>
 </figure>
 
@@ -51,8 +51,8 @@ Look at the resulting distance-based tree (Figure 3). Select Br lengths and Boot
     Box 1 - Spoligotyping
     The popular spoligotyping approach (Kamerbeek et al., 1997) exploits the polymorphism at the direct repeat (DR) locus of Mycobacterium tuberculosis. It is based on the PCR amplification of 43 short unique sequences (termed spacers) found between well-conserved 36-bp DRs and the subsequent hybridisation of the products onto a membrane with oligonucleotides complementary to each spacer. Since strains vary in the occurrence of particular spacers, each sample produces a distinctive spot pattern, which is then translated into a numerical code of 15 digits (known as octal code). Each code or group of related codes correspond to particular strain types such as Beijing, Central-Asian (CAS) or Latin-American (LAM) types.
 
-    ![seaview](img/img_4.jpg)
     <figure markdown>
+    ![seaview](img/img_4.jpg)
         <figcaption>Figure 4 Spoligotying scematic</figcaption>
     </figure>
 
@@ -72,8 +72,8 @@ Click on upload and drag and drop in the A70067_1.fastq.gz file to the upload bo
 !!! question
     How do the profiles differ from each other? Is this what you expected, especially when comparing to the original phylogenetic tree visualised in seaview? Are there any situations where this profiling approach could lead to an inconclusive result? 
 
-![tb-profiler](img/img_5.jpg)
 <figure markdown>
+![tb-profiler](img/img_5.jpg)
     <figcaption>Figure 5 tb-profiler upload screen</figcaption>
 </figure>
 
@@ -85,8 +85,8 @@ Launch the IGV tool (typing “igv.sh” on the command-line)
 
 The IGV application window is divided into several controls and panels (see figure below). If sample attributes are loaded, they will be colour-coded and displayed as columns on the left-hand side of its corresponding identifier.
 
-![tb-profiler](img/img_6.jpg)
 <figure markdown>
+![tb-profiler](img/img_6.jpg)
     <figcaption>Figure 6 IGV overview panels and features</figcaption>
 </figure>
 
@@ -96,8 +96,8 @@ We need to load in the reference genome and annotation into IGV. The software pr
 
 Fill in all required fields including ‘Unique identifier’, ‘Descriptive name’, ‘FASTA file’ and ‘Gene file’ (see Figure below). In the ‘FASTA file’ field click on ‘Browse’ and load `MTB.fa` (reference genome file). Similarly, in the ‘Gene file’ field load `MTB.gff` (the gene annotation file). Click OK and save `H37Rv.genome` in the working directory. Having done so, a new reference file named ‘Mtb reference genome’ will have been added in the reference genome selector (top left corner of the screen).
 
-![tb-profiler](img/img_7.jpg)
 <figure markdown>
+![tb-profiler](img/img_7.jpg)
     <figcaption>Figure 7 IGV setup</figcaption>
 </figure>
 
@@ -107,8 +107,8 @@ Click on File > Load from file... and select the corresponding BAM files (A70067
 
 The IGV screen should now be focused on that gene, but try zooming out and in.
 
-![tb-profiler](img/img_8.jpg)
 <figure markdown>
+![tb-profiler](img/img_8.jpg)
     <figcaption>Figure 8 Figure 4 IGV view showing a deletion at the Rv3738c locus in A70067_1 isolate</figcaption>
 </figure>
 
@@ -129,8 +129,8 @@ The primary mechanism for acquiring resistance in M. tuberculosis is the accumul
 
 **Make use of the Search Box functionality again to go to the genes of interest. Try to spot differences between the susceptible and resistant isolates in terms of presence/absence of SNPs** (Figure 9). Note that lineage-specific SNPs may also be present. Table 2 contains drug resistance and lineage-specific SNPs found in the rpoB and katG genes. Mismatches are colour-coded, while nucleotides matching the reference are not. Nevertheless, not all mismatches are to be considered SNPs since some differences are due to sequencing errors. On average, 1 in every 1000 bases in the reads is expected to be incorrect. However, the high depth of coverage achieved by current sequencing platforms means SNPs can be distinguished from sequencing errors. True SNPs are expected to be mismatches occurring consistently across multiple reads at the same reference position, whereas mismatches at spurious locations are likely to be caused by sequencing errors.
 
-![tb-profiler](img/img_9.jpg)
 <figure markdown>
+![tb-profiler](img/img_9.jpg)
     <figcaption>Figure 9 IGV view focused on rpoB gene (locus tag: Rv0667, coordinates: 759810-763328 bp)</figcaption>
 </figure>
 
@@ -219,8 +219,8 @@ After the page loads click on the upload box and select the .json file. This rep
 !!! question
     Does this agree with the phylogenetic tree? What happens if you alter the snp-distance cutoff to be more conservative (e.g. 10 SNPs)? What do you think is the best cutoff to use?
 
-![tb-profiler](img/img_10.jpg)
 <figure markdown>
+![tb-profiler](img/img_10.jpg)
     <figcaption>Figure 10 A transmission network generated by tb-profiler</figcaption>
 </figure>
 
@@ -229,7 +229,7 @@ Finally, the collate command also produces annotation config files that can be u
 -	Tbprofiler.dr.itol.txt – a strip indicating the drug resistance type.
 -	Tbprofiler.dr.individ.itol.txt – circles for each individual drug where a solid filled circle indicates resistance.
 
-![tb-profiler](img/img_11.jpg)
 <figure markdown>
+![tb-profiler](img/img_11.jpg)
     <figcaption>Figure 11 Annotations profuced by tb-profiler visualised with iTOL</figcaption>
 </figure>
