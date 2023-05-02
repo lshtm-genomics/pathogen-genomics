@@ -21,7 +21,7 @@ bash <(curl -Ssk https://tbdr.lshtm.ac.uk/static/tb_data.sh)
 
 In this section we will be generating phylogenetic trees from whole-genome polymorphisms. The dataset consists of 51 M. tuberculosis isolates, which underwent DNA sequencing using Illumina (Genome Analyser II, 76-bp paired-end) technology. Samples were isolated from 41 treatment-experienced TB patients attending a clinic in Kampala, Uganda, including longitudinal samples from five patients and cases of multi drug-resistant TB (MDR-TB). Raw reads were mapped to the H37Rv reference genome using BWA software and subsequently 6857 SNPs inferred employing SAMTOOLS and BCF/VCFTOOLS.  By concatenating the SNP locations for the 51 samples, a PHYLIP formatted dataset (uganda_gen.phy) has been prepared to read into most phylogenetics software. Here we will be using seaview (Gouy, Guindon, & Gascuel, 2010), a graphical user interface for multiple sequence alignment and molecular phylogeny. 
 
-Open up a new seaview window (by typing `seaview` on the terminal). Select File -> Open Phylip and choose `uganda_gen.fasta`
+Open up a new seaview window (by typing `seaview` on the terminal). Select File -> Open Phylip and choose "**uganda_gen.fasta**"
 
 <figure markdown>
 ![seaview](img/img_1.jpg)
@@ -65,19 +65,21 @@ You have seen that genome alignments can be used to construct phylogenetic trees
 
 Before you close seaview, save the phylogenetic tree be selecting “File -> Save rooted tree” using `uganda_gen.nwk` as the file name.
 
+## 2. In-silico strain typing
 Whole genome sequencing is making its way into a clinical setting to assist with patient management. Recent reports of sequencing M. tuberculosis from sputum from suspected drug resistant patients (Whitney et al, 2015) suggests it has a role in the management of tuberculosis. An exhaustive library of 1325 drug resistance markers has been established and integrated into an online tool that rapidly analyses raw sequence data and predicts resistance (Coll et al, 2015; Phelan et al 2019). The online tool is called “TB-profiler” and can be accessed via https://tbdr.lshtm.ac.uk/
 
 Click on upload and drag and drop in the A70067_1.fastq.gz file to the upload box, change the “pairing” option to “single” and press “Submit”. The output will take a few minutes to generate, as there are many millions of reads. Similarly, run it for the other sample from patient A70067 (A70067_2.fastq.gz). 
-
-!!! question
-    How do the profiles differ from each other? Is this what you expected, especially when comparing to the original phylogenetic tree visualised in seaview? Are there any situations where this profiling approach could lead to an inconclusive result? 
 
 <figure markdown>
 ![tb-profiler](img/img_5.jpg)
     <figcaption>Figure 5 tb-profiler upload screen</figcaption>
 </figure>
 
-## 2. Genetic variation visualisation between different strains
+!!! question
+    How do the profiles differ from each other? Is this what you expected, especially when comparing to the original phylogenetic tree visualised in seaview? Are there any situations where this profiling approach could lead to an inconclusive result? 
+
+
+## 3. Genetic variation visualisation between different strains
 
 Here we use the Broad Institute's IGV genomic visualisation tool to consider SNP and structural variation differences between Kampalan Mtb alignments. 
 
@@ -103,16 +105,16 @@ Fill in all required fields including ‘Unique identifier’, ‘Descriptive na
 
 We will be exploring the genomic data for samples A70067_1 (CAS2, lineage3, September 2003) and A70067_2 (T2, lineage 4, April 2004) which, as discussed in the previous exercise, were isolated from the same patient but are different strains being introduced at different times. We should now load in the BAM files (alignment files) from these two different strains in the previous loaded IGV environment
 
-Click on File > Load from file... and select the corresponding BAM files (A70067_1.bam and A70067_2.bam). Go to the chromosome region harbouring the Rv3738c gene (coordinates 4,189,463 to 4,190,410 bp) using the Search Box. Type in ‘Rv3738c’ or ‘Chromosome:4,189,463-4,190,410’ in the search box. 
+Click on File > Load from file... and select the corresponding BAM files (A70067_1.bam and A70067_2.bam). Go to the chromosome region harbouring the *Rv3738c* gene (coordinates 4,189,463 to 4,190,410 bp) using the Search Box. Type in ‘Rv3738c’ or ‘Chromosome:4,189,463-4,190,410’ in the search box. 
 
 The IGV screen should now be focused on that gene, but try zooming out and in.
 
 <figure markdown>
 ![tb-profiler](img/img_8.jpg)
-    <figcaption>Figure 8 Figure 4 IGV view showing a deletion at the Rv3738c locus in A70067_1 isolate</figcaption>
+    <figcaption>Figure 8 Figure 4 IGV view showing a deletion at the *Rv3738c* locus in A70067_1 isolate</figcaption>
 </figure>
 
-**Take a closer look at both the BAM and coverage tracks around Rv3738c gene. A deletion with respect to the reference can be spotted in A70067_1, whilst is absent in A70067_2.** Several signatures are indicative of such event. The most obvious is the lack of read coverage at the region. The presence of read pairs with greater insert size (shown in brown) and badly aligned reads at both breakpoints are indicative of a large deletion too. 
+**Take a closer look at both the BAM and coverage tracks around _Rv3738c_ gene. A deletion with respect to the reference can be spotted in A70067_1, whilst is absent in A70067_2.** Several signatures are indicative of such event. The most obvious is the lack of read coverage at the region. The presence of read pairs with greater insert size (shown in brown) and badly aligned reads at both breakpoints are indicative of a large deletion too. 
 
 Samples belonging to CAS2 strains (e.g. A70067_1) are reported to have a deletion covering this region while other strains types are not. These regions are often called Regions of Difference (RD), and some RDs and SNPs are associated with strain-types (Coll et al, 2014). 
 
@@ -125,27 +127,27 @@ As shown earlier, Isolates A70067_1 and A70067_2 exhibit different drug suscepti
 
 Drugs: INH = Isoniazid , RIF=  Rifampicin, R = resistant, S = susceptible; DR = drug resistant candidates. SNP (non-synonymous changes). 
 
-The primary mechanism for acquiring resistance in M. tuberculosis is the accumulation of point mutations (SNPs) in genes coding for drug targets or converting enzymes, and drug resistant disease arises through selection of mutants during inadequate treatment (Zhang & Vilcheze, 2005) or new transmitted resistant strains. **We will investigate polymorphism differences between A70067_1 and A70067_2 isolates in katG (Rv1908c, coordinates: 2153896-2156118 bp) and rpoB (Rv0667, coordinates: 759810-763328 bp) genes**, known to be associated with INH and RIF resistance respectively.
+The primary mechanism for acquiring resistance in M. tuberculosis is the accumulation of point mutations (SNPs) in genes coding for drug targets or converting enzymes, and drug resistant disease arises through selection of mutants during inadequate treatment (Zhang & Vilcheze, 2005) or new transmitted resistant strains. **We will investigate polymorphism differences between A70067_1 and A70067_2 isolates in katG (_Rv1908c_, coordinates: 2153896-2156118 bp) and rpoB (_Rv0667_, coordinates: 759810-763328 bp) genes**, known to be associated with INH and RIF resistance respectively.
 
 **Make use of the Search Box functionality again to go to the genes of interest. Try to spot differences between the susceptible and resistant isolates in terms of presence/absence of SNPs** (Figure 9). Note that lineage-specific SNPs may also be present. Table 2 contains drug resistance and lineage-specific SNPs found in the rpoB and katG genes. Mismatches are colour-coded, while nucleotides matching the reference are not. Nevertheless, not all mismatches are to be considered SNPs since some differences are due to sequencing errors. On average, 1 in every 1000 bases in the reads is expected to be incorrect. However, the high depth of coverage achieved by current sequencing platforms means SNPs can be distinguished from sequencing errors. True SNPs are expected to be mismatches occurring consistently across multiple reads at the same reference position, whereas mismatches at spurious locations are likely to be caused by sequencing errors.
 
 <figure markdown>
 ![tb-profiler](img/img_9.jpg)
-    <figcaption>Figure 9 IGV view focused on rpoB gene (locus tag: Rv0667, coordinates: 759810-763328 bp)</figcaption>
+    <figcaption>Figure 9 IGV view focused on rpoB gene (locus tag: _Rv0667_, coordinates: 759810-763328 bp)</figcaption>
 </figure>
 
 |     Gene    |     Locus Name    |     Chromosome position    |     Nucleotide change    |     Amino acid change and codon number    |     Annotation                       |
 |-------------|-------------------|----------------------------|--------------------------|-------------------------------------------|--------------------------------------|
-|     katG    |     Rv1908c       |     2155168                |     C/A                  |     S315I                                 |     INH resistance conferring SNP    |
-|     katG    |     Rv1908c       |     2155168                |     C/T                  |     S315N                                 |     INH resistance conferring SNP    |
-|     katG    |     Rv1908c       |     2155168                |     C/G                  |     S315T                                 |     INH resistance conferring SNP    |
-|     katG    |     Rv1908c       |     2154724                |     C/A                  |     R463L                                 |     Non-lineage 4 specific SNP       |
-|     rpoB    |     Rv0667        |     761155                 |     C/T                  |     S450L                                 |     RMP resistance conferring SNP    |
-|     rpoB    |     Rv0667        |     761155                 |     C/G                  |     D450W                                 |     RMP resistance conferring SNP    |
-|     rpoB    |     Rv0667        |     762434                 |     T/G                  |     G876G                                 |     CAS/lineage 3 specific SNP       |
-|     rpoB    |     Rv0667        |     763031                 |     T/C                  |     A1075A                                |     Non-lineage 4 specific SNP       |
+|     _katG_    |     _Rv1908c_       |     2155168                |     C/A                  |     S315I                                 |     INH resistance conferring SNP    |
+|     _katG_    |     _Rv1908c_       |     2155168                |     C/T                  |     S315N                                 |     INH resistance conferring SNP    |
+|     _katG_    |     _Rv1908c_       |     2155168                |     C/G                  |     S315T                                 |     INH resistance conferring SNP    |
+|     _katG_    |     _Rv1908c_       |     2154724                |     C/A                  |     R463L                                 |     Non-lineage 4 specific SNP       |
+|     _rpoB_    |     _Rv0667_        |     761155                 |     C/T                  |     S450L                                 |     RMP resistance conferring SNP    |
+|     _rpoB_    |     _Rv0667_        |     761155                 |     C/G                  |     D450W                                 |     RMP resistance conferring SNP    |
+|     _rpoB_    |     _Rv0667_        |     762434                 |     T/G                  |     G876G                                 |     CAS/lineage 3 specific SNP       |
+|     _rpoB_    |     _Rv0667_        |     763031                 |     T/C                  |     A1075A                                |     Non-lineage 4 specific SNP       |
 
-## 3. Investigating transmission
+## 4. Investigating transmission
 
 Using web-based tools is a great way to run software without the need for installation or knowledge of Linux or the command-line. However, these are often not convenient to use if you have many samples, or don’t have access to the internet. Many of the tools that we have used today are also available as command-line software (or have equivalents). To demonstrate this, we will run tb-profiler on our terminal. 
 
