@@ -2,4 +2,4 @@
 
 Please click the links below for practical materials:
     
-- [TB genomics](/tb-genomics/)
+- [TB genomics](tb-genomics/)
