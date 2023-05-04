@@ -212,7 +212,7 @@ ls *.vcf.gz | awk 'BEGIN {print "id,vcf"} {print $1","$1}' | sed 's/.vcf.gz//' >
 This will create a csv file with two columns: id and vcf. Have a look at the format by running `head vcf_files.csv`. Now you can tell tb-profiler to run the pipeline for all samples in the csv file by running:
 
 ```
-tb-profiler batch –csv vcf_files.csv --args “--snp_dist 20”
+tb-profiler batch -csv vcf_files.csv --args "--snp_dist 20"
 ```
 
 You’ll notice we didn’t give the `--vcf` and `--prefix` arguments as these are read from the csv file. We do have to specify any additional arguments with `--args` followed by the arguments as you would type them for a single sample command.
