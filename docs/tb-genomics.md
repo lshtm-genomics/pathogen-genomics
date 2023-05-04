@@ -19,13 +19,13 @@ bash <(curl -Ssk https://tbdr.lshtm.ac.uk/static/tb_data.sh)
 
 ## 1. Whole genome phylogenetic analysis
 
-In this section we will be generating phylogenetic trees from whole-genome polymorphisms. The dataset consists of 51 M. tuberculosis isolates, which underwent DNA sequencing using Illumina (Genome Analyser II, 76-bp paired-end) technology. Samples were isolated from 41 treatment-experienced TB patients attending a clinic in Kampala, Uganda, including longitudinal samples from five patients and cases of multi drug-resistant TB (MDR-TB). Raw reads were mapped to the H37Rv reference genome using BWA software and subsequently 6857 SNPs inferred employing SAMTOOLS and BCF/VCFTOOLS.  By concatenating the SNP locations for the 51 samples, a PHYLIP formatted dataset (uganda_gen.phy) has been prepared to read into most phylogenetics software. Here we will be using seaview (Gouy, Guindon, & Gascuel, 2010), a graphical user interface for multiple sequence alignment and molecular phylogeny. 
+In this section we will be generating phylogenetic trees from whole-genome polymorphisms. The dataset consists of 51 M. tuberculosis isolates, which underwent DNA sequencing using Illumina (Genome Analyser II, 76-bp paired-end) technology. Samples were isolated from 41 treatment-experienced TB patients attending a clinic in Kampala, Uganda, including longitudinal samples from five patients and cases of multi drug-resistant TB (MDR-TB). Raw reads were mapped to the H37Rv reference genome using BWA software and subsequently 6857 SNPs inferred employing SAMTOOLS and BCF/VCFTOOLS.  By concatenating the SNP locations for the 51 samples, a FASTA formatted dataset (uganda_gen.fasta) has been prepared to read into most phylogenetics software. Here we will be using seaview (Gouy, Guindon, & Gascuel, 2010), a graphical user interface for multiple sequence alignment and molecular phylogeny. 
 
-Open up a new seaview window (by typing `seaview` on the terminal). Select File -> Open Phylip and choose "**uganda_gen.fasta**"
+Open up a new seaview window (by typing `seaview` on the terminal). Select File -> Open and choose "**uganda_gen.fasta**"
 
 <figure markdown>
 ![seaview](img/img_1.jpg)
-    <figcaption>Figure 1 Phylip-formatted sequence alignment of 51 Mtb isolates</figcaption>
+    <figcaption>Figure 1 Fasta-formatted sequence alignment of 51 Mtb isolates</figcaption>
 </figure>
 
 
@@ -75,8 +75,17 @@ Click on upload and drag and drop in the A70067_1.fastq.gz file to the upload bo
     <figcaption>Figure 5 tb-profiler upload screen</figcaption>
 </figure>
 
+!!! info
+    ![](https://media.tenor.com/rec5dlPBK2cAAAAd/mr-bean-waiting.gif)
+
+    If you are feeling extra impatient today you can find pre-computed results here:
+
+    - A70067_1 - [https://tbdr.lshtm.ac.uk/results/0ba50688-d874-44e7-93c0-f78ec7334730](https://tbdr.lshtm.ac.uk/results/0ba50688-d874-44e7-93c0-f78ec7334730)
+    - A70067_2 - [https://tbdr.lshtm.ac.uk/results/1dcefc81-70c1-40e4-8aa5-6ce03ee746bf](https://tbdr.lshtm.ac.uk/results/1dcefc81-70c1-40e4-8aa5-6ce03ee746bf)
+
 !!! question
     How do the profiles differ from each other? Is this what you expected, especially when comparing to the original phylogenetic tree visualised in seaview? Are there any situations where this profiling approach could lead to an inconclusive result? 
+
 
 
 ## 3. Genetic variation visualisation between different strains
