@@ -196,7 +196,7 @@ tb-profiler collate
 Now we’ll run tb-profiler on all samples. Running it from fastq files can take some time as it must go through all processing steps including trimming, mapping and variant calling. As a result it can take a while to run. Tb-profiler also can take input from vcf files which just contain variants. To run the pipeline using the provided vcfs the command should look like:
 
 ```
-tb-profiler profile --vcf A70067_1.vcf.gz --prefix A70067_1 –txt
+tb-profiler profile --vcf A70067_1.vcf.gz --prefix A70067_1 --txt
 ```
 
 Here we have just switched the `--read1` argument for the `--vcf` argument. 
