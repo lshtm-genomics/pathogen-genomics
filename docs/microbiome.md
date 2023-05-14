@@ -1,8 +1,16 @@
 # Microbiomes Practical
 
- Bacterial vaginosis (BV) is a dysbiotic condition caused by excessive growth of certain bacteria replacing the regular vaginal microbiome. Common symptoms include increased discharge, burning with urination, and itching. BV increases the risk of infection by a number of sexually transmitted infections including HIV/AIDS as well as the risk of early delivery when pregnant. The changed composition of the microbiome leads to a higher pH and a hundred to thousand-fold increase in the total number of bacteria present.
+Bacterial vaginosis (BV) is a dysbiotic condition caused by excessive growth of certain bacteria replacing the regular vaginal microbiome. Common symptoms include increased discharge, burning with urination, and itching. BV increases the risk of infection by a number of sexually transmitted infections including HIV/AIDS as well as the risk of early delivery when pregnant. The changed composition of the microbiome leads to a higher pH and a hundred to thousand-fold increase in the total number of bacteria present.
 
-For this practical we are considering 12 samples of vaginal swab that were taken at a polyclinic by a GP in a setting of high transmission of HIV. DNA was extracted from the swabs and amplified using primers specific for the first two hypervariable regions (V1 and V2) of the 16S rRNA gene (27F and 338R). These samples were then sequenced with MiSeq Illumina producing paired end data of 300 bp length per read. The 12 pairs of files generated are found in the data/metagenomics/fastq/ directory. The patients’ phenotype was determined by the doctors at the time of sample collection with the following results:
+## Getting the data
+
+To get the latest version of the data for this practical please open up a terminal window and enter the following:
+
+```
+bash <(curl -Ssk https://tbdr.lshtm.ac.uk/static/microbiome_data.sh)  
+```
+
+For this practical we are considering 12 samples of vaginal swab that were taken at a polyclinic by a GP in a setting of high transmission of HIV. DNA was extracted from the swabs and amplified using primers specific for the first two hypervariable regions (V1 and V2) of the 16S rRNA gene (27F and 338R). These samples were then sequenced with MiSeq Illumina producing paired end data of 300 bp length per read. The 12 pairs of files generated are found in the data/microbiome/fastq/ directory. The patients’ phenotype was determined by the doctors at the time of sample collection with the following results:
 
 | Sample | BV  | pH  |
 |--------|-----|-----|
@@ -26,7 +34,7 @@ One idiosyncrasy of QIIME2 is the use of so-called "artefacts". These are zip-ar
 
 ## Quality control
 
-After activating the conda environment for this practical with `conda activate microbiome`, go into the module directory with `cd data/metagenomics` and have a look at its contents with `ls`. There should be a directory with the 16S sequencing data (in fastq), a 16S database (in db), and a CSV file with our metadata. Let's check if our reads are there with `ls fastq`. We can also have a look at the filesizes with `du -sh fastq/* | sort -h` (it can't hurt to get a feeling for these things). 
+After activating the conda environment for this practical with `conda activate microbiome`, go into the module directory with `cd data/microbiome` and have a look at its contents with `ls`. There should be a directory with the 16S sequencing data (in fastq), a 16S database (in db), and a CSV file with our metadata. Let's check if our reads are there with `ls fastq`. We can also have a look at the filesizes with `du -sh fastq/* | sort -h` (it can't hurt to get a feeling for these things). 
 
 ```
 mkdir fastqc_reports
@@ -90,16 +98,16 @@ This should have done the trick. `cat fastq_abs_paths` let's us see what we got.
 
 ```
 sample-id       forward-absolute-filepath       reverse-absolute-filepath
-BB_1    /home/user/data/metagenomics/fastq/BB_1_1.fastq.gz      /home/user/data/metagenomics/fastq/BB_1_2.fastq.gz
-BB_2    /home/user/data/metagenomics/fastq/BB_2_1.fastq.gz      /home/user/data/metagenomics/fastq/BB_2_2.fastq.gz
-BB_4    /home/user/data/metagenomics/fastq/BB_4_1.fastq.gz      /home/user/data/metagenomics/fastq/BB_4_2.fastq.gz
-BB_5    /home/user/data/metagenomics/fastq/BB_5_1.fastq.gz      /home/user/data/metagenomics/fastq/BB_5_2.fastq.gz
-BB_6    /home/user/data/metagenomics/fastq/BB_6_1.fastq.gz      /home/user/data/metagenomics/fastq/BB_6_2.fastq.gz
-BB_7    /home/user/data/metagenomics/fastq/BB_7_1.fastq.gz      /home/user/data/metagenomics/fastq/BB_7_2.fastq.gz
-BB_9    /home/user/data/metagenomics/fastq/BB_9_1.fastq.gz      /home/user/data/metagenomics/fastq/BB_9_2.fastq.gz
-BB_10   /home/user/data/metagenomics/fastq/BB_10_1.fastq.gz     /home/user/data/metagenomics/fastq/BB_10_2.fastq.gz
-BB_11   /home/user/data/metagenomics/fastq/BB_11_1.fastq.gz     /home/user/data/metagenomics/fastq/BB_11_2.fastq.gz
-BB_12   /home/user/data/metagenomics/fastq/BB_12_1.fastq.gz     /home/user/data/metagenomics/fastq/BB_12_2.fastq.gz
+BB_1    /home/user/data/microbiome/fastq/BB_1_1.fastq.gz      /home/user/data/microbiome/fastq/BB_1_2.fastq.gz
+BB_2    /home/user/data/microbiome/fastq/BB_2_1.fastq.gz      /home/user/data/microbiome/fastq/BB_2_2.fastq.gz
+BB_4    /home/user/data/microbiome/fastq/BB_4_1.fastq.gz      /home/user/data/microbiome/fastq/BB_4_2.fastq.gz
+BB_5    /home/user/data/microbiome/fastq/BB_5_1.fastq.gz      /home/user/data/microbiome/fastq/BB_5_2.fastq.gz
+BB_6    /home/user/data/microbiome/fastq/BB_6_1.fastq.gz      /home/user/data/microbiome/fastq/BB_6_2.fastq.gz
+BB_7    /home/user/data/microbiome/fastq/BB_7_1.fastq.gz      /home/user/data/microbiome/fastq/BB_7_2.fastq.gz
+BB_9    /home/user/data/microbiome/fastq/BB_9_1.fastq.gz      /home/user/data/microbiome/fastq/BB_9_2.fastq.gz
+BB_10   /home/user/data/microbiome/fastq/BB_10_1.fastq.gz     /home/user/data/microbiome/fastq/BB_10_2.fastq.gz
+BB_11   /home/user/data/microbiome/fastq/BB_11_1.fastq.gz     /home/user/data/microbiome/fastq/BB_11_2.fastq.gz
+BB_12   /home/user/data/microbiome/fastq/BB_12_1.fastq.gz     /home/user/data/microbiome/fastq/BB_12_2.fastq.gz
 ```
 
 Great! This should be sufficient to let QIIME2 know where the files that we want to import are. Now, we can import the reads with 
@@ -140,7 +148,7 @@ This will produce an artefact holding a list of unique sequences (rep_seqs.qza) 
 
 !!! info
     If applicable, increase the number of threads in order to speed things up.
-    Hint: You can put time in front of any command to see how long it took. Try it with time sleep 5 in a new terminal.
+    Hint: You can put time in front of any command to see how long it took. Try it with `time sleep 5` in a new terminal.
     Also note that we told the program to truncate forward and reverse reads after 190 bp due to the decrease in quality we saw in multiqc_report.html. As the amplicon is only expected to be ~310 bp long, this should still give us sufficient overlap. 
 
 ## Building a tree
@@ -148,7 +156,7 @@ This will produce an artefact holding a list of unique sequences (rep_seqs.qza) 
 qiime includes a tree-building pipeline which allows us to generate a phylogenetic tree from the denoised sequences with a single command. MAFFT is used for the alignment and multiple tree-inference methods are available (have a look at qiime's phylogeny plugin for details). We will use FastTree, which is the fastest but also least accurate option available. 
 
 ```
-time qiime phylogeny align-to-tree-mafft-fasttree \
+qiime phylogeny align-to-tree-mafft-fasttree \
     --i-sequences rep_seqs.qza \
     --o-alignment aligned_rep_seqs.qza \
     --o-masked-alignment masked_aligned_rep_seqs.qza \
@@ -177,9 +185,9 @@ qiime feature-table summarize \
     --o-visualization table.qzv
 ```
 
-Visualisation files are produced by certain qiime commands and provide human-readable information like plots, tables, or summary statistics. There are several ways to view such files. The easiest one is to go to https://view.qiime2.org/ and drag & drop them into your browser window. 
+Visualisation files are produced by certain qiime commands and provide human-readable information like plots, tables, or summary statistics. There are several ways to view such files. The easiest one is to go to [https://view.qiime2.org/](https://view.qiime2.org/) and drag & drop them into your browser window. 
 
-Note that the tables and plots generated at https://view.qiime2.org/ are all rendered in your local browser and that nothing is uploaded to be processed on an external server, which is often required when working with sensitive data. 
+Note that the tables and plots generated at [https://view.qiime2.org/](https://view.qiime2.org/) are all rendered in your local browser and that nothing is uploaded to be processed on an external server, which is often required when working with sensitive data. 
 
 Once the visualisation has loaded, there should be a table looking like this: 
 
@@ -197,7 +205,7 @@ qiime diversity core-metrics-phylogenetic \
     --output-dir core-metrics-results
 ```
 
-This will generate a new directory core-metrics-results holding (based on multiple different diversity metrics) sample-wise diversity values ("alpha diversity"), pairwise inter-sample distance matrices ("beta diversity"), and visualisations of PCoA plots (ending in .qzv). These can again be inspected with https://view.qiime2.org/. For example, the PCoA plot based on Bray–Curtis distance with BV-negative samples in red and BV-positive samples in blue looks like this: 
+This will generate a new directory core-metrics-results holding (based on multiple different diversity metrics) sample-wise diversity values ("alpha diversity"), pairwise inter-sample distance matrices ("beta diversity"), and visualisations of PCoA plots (ending in .qzv). These can again be inspected with [https://view.qiime2.org/](https://view.qiime2.org/). For example, the PCoA plot based on Bray–Curtis distance with BV-negative samples in red and BV-positive samples in blue looks like this: 
 
 ![](img/microbiome_4.png)
 
@@ -224,7 +232,7 @@ qiime metadata tabulate \
     --o-visualization taxonomy.qzv
 ```
 
-and open the visualisation taxonomy.qzv in https://view.qiime2.org/. 
+and open the visualisation taxonomy.qzv in [https://view.qiime2.org/](https://view.qiime2.org/). 
 
 To get a more intuitive understanding of the microbial composition of our samples we can now ask qiime to plot it for us: 
 
@@ -236,7 +244,7 @@ qiime taxa barplot \
     --o-visualization taxa_barplot.qzv
 ```
 
-The resulting visualisation at species level ("Level 7") looks like this in https://view.qiime2.org/: 
+The resulting visualisation at species level ("Level 7") looks like this in [https://view.qiime2.org/](https://view.qiime2.org/): 
 
 ![](img/microbiome_5.png)
 
@@ -286,7 +294,7 @@ for metric in bray_curtis jaccard unweighted_unifrac weighted_unifrac; do
 done
 ```
 
-Again, we got a visualisation for each metric. Have a look at them in https://view.qiime2.org/. What do you find? Are all of them in agreement this time? 
+Again, we got a visualisation for each metric. Have a look at them in [https://view.qiime2.org/](https://view.qiime2.org/). What do you find? Are all of them in agreement this time? 
 
 This concludes today's practical. If you are interested in differentially abundant taxa between the BV and non-BV samples, have a look at qiime's' ANCOM function. 
 
