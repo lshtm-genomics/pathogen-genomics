@@ -120,7 +120,7 @@ qiime tools import \
     --input-format PairedEndFastqManifestPhred33V2
 ```
 
-This hopefully finishes successfully in a few seconds. Afterwards, you can check whether a new file was created with ls (which is slowly becoming our best friend now – right after cd of course). 
+This hopefully finishes successfully in a few seconds. Afterwards, you can check whether a new file was created with `ls` (which is slowly becoming our best friend now – right after `cd` of course). 
 
 qiime also requires the metadata to be in TSV (tab-separated values), whereas our file is a CSV (comma-separated). We can simply fix this with 
 
@@ -189,7 +189,7 @@ Visualisation files are produced by certain qiime commands and provide human-rea
 
 Note that the tables and plots generated at [https://view.qiime2.org/](https://view.qiime2.org/) are all rendered in your local browser and that nothing is uploaded to be processed on an external server, which is often required when working with sensitive data. 
 
-Once the visualisation has loaded, there should be a table looking like this: 
+Try using this site to view the table.qzv visualisation artefact produced by the last command. Once the visualisation has loaded, there should be a table looking like this: 
 
 ![](img/microbiome_3.png)
 
@@ -205,7 +205,7 @@ qiime diversity core-metrics-phylogenetic \
     --output-dir core-metrics-results
 ```
 
-This will generate a new directory core-metrics-results holding (based on multiple different diversity metrics) sample-wise diversity values ("alpha diversity"), pairwise inter-sample distance matrices ("beta diversity"), and visualisations of PCoA plots (ending in .qzv). These can again be inspected with [https://view.qiime2.org/](https://view.qiime2.org/). For example, the PCoA plot based on Bray–Curtis distance with BV-negative samples in red and BV-positive samples in blue looks like this: 
+This will generate a new directory "core-metrics-results" holding (based on multiple different diversity metrics) sample-wise diversity values ("alpha diversity"), pairwise inter-sample distance matrices ("beta diversity"), and visualisations of PCoA plots (ending in .qzv). These can again be inspected with [https://view.qiime2.org/](https://view.qiime2.org/). For example, the PCoA plot based on Bray–Curtis distance with BV-negative samples in red and BV-positive samples in blue looks like this: 
 
 ![](img/microbiome_4.png)
 
