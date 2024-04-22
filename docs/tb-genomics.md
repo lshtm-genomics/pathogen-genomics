@@ -9,14 +9,6 @@ The underlying theme of this practical is the use of genomics in understanding T
 -	Understand the conclusions you can draw from the analysis
 -	Think about how you can apply these concepts to different organisms/scenarios
 
-## Getting the data
-
-To get the latest version of the data for this practical please open up a terminal window and enter the following:
-
-```
-bash <(curl -Ssk https://tbdr.lshtm.ac.uk/static/tb_data.sh)  
-```
-
 ## 1. Whole genome phylogenetic analysis
 
 In this section we will be generating phylogenetic trees from whole-genome polymorphisms. The dataset consists of 51 M. tuberculosis isolates, which underwent DNA sequencing using Illumina (Genome Analyser II, 76-bp paired-end) technology. Samples were isolated from 41 treatment-experienced TB patients attending a clinic in Kampala, Uganda, including longitudinal samples from five patients and cases of multi drug-resistant TB (MDR-TB). Raw reads were mapped to the H37Rv reference genome using BWA software and subsequently 6857 SNPs inferred employing SAMTOOLS and BCF/VCFTOOLS.  By concatenating the SNP locations for the 51 samples, a FASTA formatted dataset (uganda_gen.fasta) has been prepared to read into most phylogenetics software. Here we will be using seaview (Gouy, Guindon, & Gascuel, 2010), a graphical user interface for multiple sequence alignment and molecular phylogeny. 
@@ -223,7 +215,7 @@ After it has finished running we can again combine the output files into a singl
 tb-profiler collate
 ```
 
-This will produce in addition to the **tbprofiler.txt** output file it will also create a file called **tbprofiler.transmission_graph.json**. We will visualise this we a web-based tool that you can open in your web browser at [https://jodyphelan.github.io/transmission-graph-viewer](https://jodyphelan.github.io/transmission-graph-viewer)
+This will produce in addition to the **tbprofiler.txt** output file it will also create a file called **tbprofiler.transmission_graph.json**. We will visualise this in a web-based tool that you can open in your web browser at [https://jodyphelan.github.io/tgv](https://jodyphelan.github.io/tgv)
 
 After the page loads click on the upload box and select the .json file. This represents the samples as nodes and where pairs of samples have a snp-distance less or equal to the cutoff an edge will be drawn between them (Figure 10). 
 
