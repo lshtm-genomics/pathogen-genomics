@@ -84,7 +84,7 @@ Click on upload and drag and drop in the A70067_1.fastq.gz file to the upload bo
 
 Here we use the Broad Institute's IGV genomic visualisation tool to consider SNP and structural variation differences between Kampalan Mtb alignments. 
 
-Launch the IGV tool (typing “igv.sh” on the command-line)
+Launch the IGV tool (typing “igv” on the command-line)
 
 The IGV application window is divided into several controls and panels (see figure below). If sample attributes are loaded, they will be colour-coded and displayed as columns on the left-hand side of its corresponding identifier.
 
