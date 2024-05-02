@@ -212,7 +212,7 @@ You’ll notice we didn’t give the `--vcf` and `--prefix` arguments as these a
 After it has finished running we can again combine the output files into a single report by running:
 
 ```
-tb-profiler collate
+tb-profiler collate --itol
 ```
 
 This will produce in addition to the **tbprofiler.txt** output file it will also create a file called **tbprofiler.transmission_graph.json**. We will visualise this in a web-based tool that you can open in your web browser at [https://jodyphelan.github.io/tgv](https://jodyphelan.github.io/tgv)
