@@ -181,7 +181,7 @@ Using the below animation as a guide, open up igv and load the alignment.bam and
     Note the ‘mismatch’ column in the left hand pane. This metric describes the percentage of bases which do not ‘agree’ with the reference file sequence. 
 
 !!! info
-    Try bringing up some of the reads you have worked with in previous session. Remember to select the appropriate `.bam` file and the correct reference fasta. Does anything strike you about the contrasting features of the data sets? Scrolling downwards in the alignment viewer on IGV, what do you notice about the ‘structures’ formed by the reads?
+    If you have time after this session, try bringing up some of the Illumina reads you have worked with in previous session. Remember to select the appropriate `.bam` file and the correct reference fasta. Does anything strike you about the contrasting features of the data sets? Scrolling downwards in the alignment viewer on IGV, what do you notice about the ‘structures’ formed by the reads?
 
 **One of the foremost caveats of nanopore sequencing is the high error rate. It is important that we use programs which are sensitive to that - which is why we used the 'ont2d' argument in the mapping stage. Try switching the colour scheme to ‘Variants’ by using the tab in the top left corner of the interface.**
 
@@ -252,11 +252,11 @@ bcftools mpileup -q 8 -B -I -Ou -f reference.fasta ~/Data/nanopore_activity/mapp
 Let's take a look inside the VCF file to see what kind of data it contains:
 
 ```
-zless calls.vcf.gz
+less calls.vcf.gz
 ```
 
 !!! info
-    You can scroll down using the down-arrow key on your keyboard. Can you recall the common features of a VCF file? Press 'q' to quit the 'zless' program to continue with the activity:
+    You can scroll down using the down-arrow key on your keyboard. Can you recall the common features of a VCF file? Press 'q' to quit the 'less' program to continue with the activity:
 
 Next, we need to index the .vcf file:
 
