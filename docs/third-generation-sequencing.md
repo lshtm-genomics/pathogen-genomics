@@ -183,12 +183,6 @@ Using the below animation as a guide, open up igv and load the alignment.bam and
 !!! info
     Try bringing up some of the reads you have worked with in previous session. Remember to select the appropriate `.bam` file and the correct reference fasta. Does anything strike you about the contrasting features of the data sets? Scrolling downwards in the alignment viewer on IGV, what do you notice about the ‘structures’ formed by the reads?
 
-!!! question
-    === "Question 4"
-        What is the percentage of the bases which are mismatched?
-    === "Answer 4"
-        16.2%
-
 **One of the foremost caveats of nanopore sequencing is the high error rate. It is important that we use programs which are sensitive to that - which is why we used the 'ont2d' argument in the mapping stage. Try switching the colour scheme to ‘Variants’ by using the tab in the top left corner of the interface.**
 
 ![ngs9](../img/ngs9.gif)
