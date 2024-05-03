@@ -39,7 +39,7 @@ Basecalling can be performed in a number of ways. There is an option to perform 
 **Hover over the different elements of the basecalling command to see its function:**
 
 ```
-guppy_basecaller --config dna_r9.4.1_450bps_fast.cfg --trim_adapters --compress_fastq  --input_path ~/Data/nanopore_activity/basecalling/raw_fast5_reads  --save_path ~/Data/nanopore_activity/basecalling/fastq 
+~/software/ont-guppy-cpu/bin/guppy_basecaller --config dna_r9.4.1_450bps_fast.cfg --trim_adapters --compress_fastq  --input_path ~/Data/nanopore_activity/basecalling/raw_fast5_reads  --save_path ~/Data/nanopore_activity/basecalling/fastq 
 ```
 
 !!! info
