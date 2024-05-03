@@ -169,11 +169,9 @@ Finally we need to index the sorted bam file:
 samtools index alignment.bam
 ```
 
-**Now that we have successfully mapped the reads to a reference we can visualise them in IGV, to get a closer look at what our sequencing run looks like.**
+**Now that we have successfully mapped the reads to a reference we can visualise them in Tablet, to get a closer look at what our sequencing run looks like.**
 
-```
-igv
-```
+Open up tablet by opening up the applications menu from the using the button on the bottom left of the screen, then typing 'tablet' in to the search bar. 
 
 Using the below animation as a guide, open up igv and load the alignment.bam and the reference.fasta files, then click on the ‘contig’ in the pane on the left side of the screen. You will see a loading bar, then the alignment will be shown. In the left ‘contig’ pane you will fine some metrics associated with this dataset.
 
