@@ -181,7 +181,7 @@ Using the below animation as a guide, open up igv and load the alignment.bam and
     Note the ‘mismatch’ column in the left hand pane. This metric describes the percentage of bases which do not ‘agree’ with the reference file sequence. 
 
 !!! info
-    Try bringing up some of the reads you have worked with in previous session. Remember to select the appropriate ‘sorted’ .bam file and the correct reference fasta. Does anything strike you about the contrasting features of the data sets? Scrolling downwards in the alignment viewer on IGV, what do you notice about the ‘structures’ formed by the reads?
+    Try bringing up some of the reads you have worked with in previous session. Remember to select the appropriate `.bam` file and the correct reference fasta. Does anything strike you about the contrasting features of the data sets? Scrolling downwards in the alignment viewer on IGV, what do you notice about the ‘structures’ formed by the reads?
 
 !!! question
     === "Question 4"
