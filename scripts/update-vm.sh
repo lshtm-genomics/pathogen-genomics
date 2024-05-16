@@ -1,1 +1,1 @@
-echo hello
+mamba install -y -n microbiome multiqc
