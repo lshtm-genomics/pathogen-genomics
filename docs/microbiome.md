@@ -28,7 +28,7 @@ One idiosyncrasy of QIIME2 is the use of so-called "artefacts". These are zip-ar
 
 ## Quality control
 
-After activating the conda environment for this practical with `conda activate microbiome`, go into the module directory with `cd Data/microbiome` and have a look at its contents with `ls`. There should be a directory with the 16S sequencing data (in fastq), a 16S database (in db), and a CSV file with our metadata. Let's check if our reads are there with `ls fastq`. We can also have a look at the filesizes with `du -sh fastq/* | sort -h` (it can't hurt to get a feeling for these things). 
+After activating the conda environment for this practical with `conda activate microbiome`, go into the module directory with `cd data/microbiome` and have a look at its contents with `ls`. There should be a directory with the 16S sequencing data (in fastq), a 16S database (in db), and a CSV file with our metadata. Let's check if our reads are there with `ls fastq`. We can also have a look at the filesizes with `du -sh fastq/* | sort -h` (it can't hurt to get a feeling for these things). 
 
 ```
 mkdir fastqc_reports
@@ -39,7 +39,7 @@ fastqc -o fastqc_reports -q -t 1 fastq/*
 !!! info
     The -t flag tells fastqc the number of threads to use. If you have more CPUs available, adjust this number accordingly. 
 
-This should produce a FastQC report for each fastq file and put them all into fastqc_reports (run `ls fastqc_reports` to double check). Going through 24 FastQC reports (two per sample; one for the forward and one for the reverse reads) manually would be quite tedious. Thankfully, multiqc can combine them for us! Let's create a new directory for it to write the results into and run it. 
+This should produce a FastQC report for each fastq file and put them all into fastqc_reports (run `ls fastqc_reports` to double check). Going through 24 FastQC reports (two per sample; one for the forward and one for the reverse reads) manually would be quite tedious. Thankfully, multiqc can combine them for us! Let's create a new directory for it to write the results into and run it. Before you do that, install the relevant package with `mamba install multiqc` and `pip install rich_click`.
 
 ```
 mkdir fastqc_combined
