@@ -11,7 +11,7 @@ The underlying theme of this practical is the use of genomics in understanding T
 
 ## 1. Whole genome phylogenetic analysis
 
-In this section we will be generating phylogenetic trees from whole-genome polymorphisms. The dataset consists of 51 M. tuberculosis isolates, which underwent DNA sequencing using Illumina (Genome Analyser II, 76-bp paired-end) technology. Samples were isolated from 41 treatment-experienced TB patients attending a clinic in Kampala, Uganda, including longitudinal samples from five patients and cases of multi drug-resistant TB (MDR-TB). Raw reads were mapped to the H37Rv reference genome using BWA software and subsequently 6857 SNPs inferred employing SAMTOOLS and BCF/VCFTOOLS.  By concatenating the SNP locations for the 51 samples, a FASTA formatted dataset (uganda_gen.fasta) has been prepared to read into most phylogenetics software. Here we will be using seaview (Gouy, Guindon, & Gascuel, 2010), a graphical user interface for multiple sequence alignment and molecular phylogeny. 
+In this section we will be generating phylogenetic trees from whole-genome polymorphisms. The dataset consists of 51 *M. tuberculosis* isolates, which underwent DNA sequencing using Illumina (Genome Analyser II, 76-bp paired-end) technology. Samples were isolated from 41 treatment-experienced TB patients attending a clinic in Kampala, Uganda, including longitudinal samples from five patients and cases of multi drug-resistant TB (MDR-TB). Raw reads were mapped to the H37Rv reference genome using BWA software and subsequently 6857 SNPs inferred employing SAMTOOLS and BCF/VCFTOOLS.  By concatenating the SNP locations for the 51 samples, a FASTA formatted dataset (uganda_gen.fasta) has been prepared to read into most phylogenetics software. Here we will be using seaview (Gouy, Guindon, & Gascuel, 2010), a graphical user interface for multiple sequence alignment and molecular phylogeny. 
 
 Open up a new seaview window (by typing `seaview` on the terminal). Select File -> Open and choose "**uganda_gen.fasta**"
 
@@ -53,12 +53,12 @@ Look at the resulting distance-based tree (Figure 3). Select Br lengths and Boot
 
 Isolates sequenced at different time points from the same patient are closely related and cluster together with very short branch lengths among them. This is the case of A70136, A70763 and A70144 patients pointed with green arrows in Figure 3. On the contrary, isolates from patient A70067 and A70011 (red arrows) happen to be placed at distant positions in the tree and having different spoligotypes. **In which terms could this be explained? We will now explore this for patient A70067.**
 
-You have seen that genome alignments can be used to construct phylogenetic trees to understand the population structure of samples. They tend to cluster by strain-type In the Kampalan set, but this also holds across a global set of samples. Spoligotyping is one way of defining strain-type, but M. tuberculosis sensu stricto can be classified into seven lineages, including four that are predominant; 1 Indo-Oceanic, 2 East-Asian including Beijing, 3 East-African-Indian, 4 Euro-American. These lineages are postulated to have differential roles in pathogenesis, disease outcome and variation in vaccine efficacy. For example, modern lineages, such as Beijing and Euro-American Haarlem strains exhibit more virulent phenotypes compared to ancient lineages, such as East African Indian (Coll et al, 2014).
+You have seen that genome alignments can be used to construct phylogenetic trees to understand the population structure of samples. They tend to cluster by strain-type In the Kampalan set, but this also holds across a global set of samples. Spoligotyping is one way of defining strain-type, but *M. tuberculosis* sensu stricto can be classified into seven lineages, including four that are predominant; 1 Indo-Oceanic, 2 East-Asian including Beijing, 3 East-African-Indian, 4 Euro-American. These lineages are postulated to have differential roles in pathogenesis, disease outcome and variation in vaccine efficacy. For example, modern lineages, such as Beijing and Euro-American Haarlem strains exhibit more virulent phenotypes compared to ancient lineages, such as East African Indian (Coll et al, 2014).
 
 Before you close seaview, save the phylogenetic tree be selecting “File -> Save rooted tree” using `uganda_gen.nwk` as the file name.
 
 ## 2. In-silico strain typing
-Whole genome sequencing is making its way into a clinical setting to assist with patient management. Recent reports of sequencing M. tuberculosis from sputum from suspected drug resistant patients (Whitney et al, 2015) suggests it has a role in the management of tuberculosis. An exhaustive library of 1325 drug resistance markers has been established and integrated into an online tool that rapidly analyses raw sequence data and predicts resistance (Coll et al, 2015; Phelan et al 2019). The online tool is called “TB-profiler” and can be accessed via https://tbdr.lshtm.ac.uk/
+Whole genome sequencing is making its way into a clinical setting to assist with patient management. Recent reports of sequencing *M. tuberculosis* from sputum from suspected drug resistant patients (Whitney et al, 2015) suggests it has a role in the management of tuberculosis. An exhaustive library of 1325 drug resistance markers has been established and integrated into an online tool that rapidly analyses raw sequence data and predicts resistance (Coll et al, 2015; Phelan et al 2019). The online tool is called “TB-profiler” and can be accessed via https://tbdr.lshtm.ac.uk/
 
 Click on upload and drag and drop in the A70067_1.fastq.gz file to the upload box, change the “pairing” option to “single” and press “Submit”. The output will take a few minutes to generate, as there are many millions of reads. Similarly, run it for the other sample from patient A70067 (A70067_2.fastq.gz). 
 
@@ -93,15 +93,13 @@ The IGV application window is divided into several controls and panels (see figu
     <figcaption>Figure 6 IGV overview panels and features</figcaption>
 </figure>
 
-We need to load in the reference genome and annotation into IGV. The software provides a set of reference genomes that can be chosen from the drop-down list in the top bar. Nonetheless, we will be loading a different genome not available in the provided list.
+We need to load in the reference genome and annotation into IGV. As you have done in previous practicals load the reference genome (MTB.fa) and annotation files (MTB.gff). 
 
-**To create a new reference genome entry click Genomes > Create .genome file...**
-
-Fill in all required fields including ‘Unique identifier’, ‘Descriptive name’, ‘FASTA file’ and ‘Gene file’ (see Figure below). In the ‘FASTA file’ field click on ‘Browse’ and load `MTB.fa` (reference genome file). Similarly, in the ‘Gene file’ field load `MTB.gff` (the gene annotation file). Click OK and save `H37Rv.genome` in the working directory. Having done so, a new reference file named ‘Mtb reference genome’ will have been added in the reference genome selector (top left corner of the screen).
+You should now see the genome sequence in the top panel and the annotation in the bottom panel. Remember, the annotation file contains information about the location of genes, their function and other features of interest.
 
 <figure markdown>
 ![tb-profiler](img/img_7.jpg)
-    <figcaption>Figure 7 IGV setup</figcaption>
+    <figcaption>Figure 7 IGV view of the reference genome and annotation</figcaption>
 </figure>
 
 We will be exploring the genomic data for samples A70067_1 (CAS2, lineage3, September 2003) and A70067_2 (T2, lineage 4, April 2004) which, as discussed in the previous exercise, were isolated from the same patient but are different strains being introduced at different times. We should now load in the BAM files (alignment files) from these two different strains in the previous loaded IGV environment
@@ -115,11 +113,11 @@ The IGV screen should now be focused on that gene, but try zooming out and in.
     <figcaption>Figure 8 Figure 4 IGV view showing a deletion at the *Rv3738c* locus in A70067_1 isolate</figcaption>
 </figure>
 
-**Take a closer look at both the BAM and coverage tracks around _Rv3738c_ gene. A deletion with respect to the reference can be spotted in A70067_1, whilst is absent in A70067_2.** Several signatures are indicative of such event. The most obvious is the lack of read coverage at the region. The presence of read pairs with greater insert size (shown in brown) and badly aligned reads at both breakpoints are indicative of a large deletion too. 
+**Take a closer look at both the BAM and coverage tracks around _Rv3738c_ gene. A deletion with respect to the reference can be spotted in A70067_1, whilst is absent in A70067_2.** Several signatures are indicative of such event. The most obvious is the lack of read coverage at the region. Large deletions such as this one should also have paried reads that span the deletion junction. To view this, right click on the coverage track and select "View as pairs". This will show you the paired reads that are mapped to the reference genome. Can you see this evidence in the A70067_1 sample? What about in A70067_2?
 
 Samples belonging to CAS2 strains (e.g. A70067_1) are reported to have a deletion covering this region while other strains types are not. These regions are often called Regions of Difference (RD), and some RDs and SNPs are associated with strain-types (Coll et al, 2014). 
 
-As shown earlier, Isolates A70067_1 and A70067_2 exhibit different drug susceptibility profiles (see Table 1). Both isolates were tested for Isoniazid (INH) and Rifampicin (RIF) anti-TB drugs, with A70067_1 being susceptible and A70067_2 bi-resistant. 
+As shown earlier, Isolates A70067_1 and A70067_2 exhibit different drug susceptibility profiles (see Table 1). Both isolates were tested for Isoniazid (INH) and Rifampicin (RIF) anti-TB drugs, with A70067_1 being susceptible and A70067_2 multidrug-resistant. 
 
 |      Patient    |     Date      |     SIT     |      Spoligotype family (lineage)    |     Drug     INH RIF    |     Compared      to    |     SNPs      All                  |     DR        |
 |-----------------|---------------|-------------|--------------------------------------|-------------------------|-------------------------|------------------------------------|---------------|
@@ -128,7 +126,7 @@ As shown earlier, Isolates A70067_1 and A70067_2 exhibit different drug suscepti
 
 Drugs: INH = Isoniazid , RIF=  Rifampicin, R = resistant, S = susceptible; DR = drug resistant candidates. SNP (non-synonymous changes). 
 
-The primary mechanism for acquiring resistance in M. tuberculosis is the accumulation of point mutations (SNPs) in genes coding for drug targets or converting enzymes, and drug resistant disease arises through selection of mutants during inadequate treatment (Zhang & Vilcheze, 2005) or new transmitted resistant strains. **We will investigate polymorphism differences between A70067_1 and A70067_2 isolates in katG (_Rv1908c_, coordinates: 2153896-2156118 bp) and rpoB (_Rv0667_, coordinates: 759810-763328 bp) genes**, known to be associated with INH and RIF resistance respectively.
+The primary mechanism for acquiring resistance in *M. tuberculosis* is the accumulation of point mutations (SNPs) in genes coding for drug targets or converting enzymes, and drug resistant disease arises through selection of mutants during inadequate treatment (Zhang & Vilcheze, 2005) or new transmitted resistant strains. **We will investigate polymorphism differences between A70067_1 and A70067_2 isolates in katG (_Rv1908c_, coordinates: 2153896-2156118 bp) and rpoB (_Rv0667_, coordinates: 759810-763328 bp) genes**, known to be associated with INH and RIF resistance respectively.
 
 **Make use of the Search Box functionality again to go to the genes of interest. Try to spot differences between the susceptible and resistant isolates in terms of presence/absence of SNPs** (Figure 9). Note that lineage-specific SNPs may also be present. Table 2 contains drug resistance and lineage-specific SNPs found in the rpoB and katG genes. Mismatches are colour-coded, while nucleotides matching the reference are not. Nevertheless, not all mismatches are to be considered SNPs since some differences are due to sequencing errors. On average, 1 in every 1000 bases in the reads is expected to be incorrect. However, the high depth of coverage achieved by current sequencing platforms means SNPs can be distinguished from sequencing errors. True SNPs are expected to be mismatches occurring consistently across multiple reads at the same reference position, whereas mismatches at spurious locations are likely to be caused by sequencing errors.
 
@@ -137,14 +135,17 @@ The primary mechanism for acquiring resistance in M. tuberculosis is the accumul
     <figcaption>Figure 9 IGV view focused on rpoB gene (locus tag: _Rv0667_, coordinates: 759810-763328 bp)</figcaption>
 </figure>
 
+!!! question
+    Can you identify the mutations in the katG and rpoB genes that are associated with INH and RIF resistance respectively? How do these mutations differ between the two isolates? (Use the table below to help you).
+
 |     Gene    |     Locus Name    |     Chromosome position    |     Nucleotide change    |     Amino acid change and codon number    |     Annotation                       |
 |-------------|-------------------|----------------------------|--------------------------|-------------------------------------------|--------------------------------------|
 |     _katG_    |     _Rv1908c_       |     2155168                |     C/A                  |     S315I                                 |     INH resistance conferring SNP    |
 |     _katG_    |     _Rv1908c_       |     2155168                |     C/T                  |     S315N                                 |     INH resistance conferring SNP    |
 |     _katG_    |     _Rv1908c_       |     2155168                |     C/G                  |     S315T                                 |     INH resistance conferring SNP    |
 |     _katG_    |     _Rv1908c_       |     2154724                |     C/A                  |     R463L                                 |     Non-lineage 4 specific SNP       |
-|     _rpoB_    |     _Rv0667_        |     761155                 |     C/T                  |     S450L                                 |     RMP resistance conferring SNP    |
-|     _rpoB_    |     _Rv0667_        |     761155                 |     C/G                  |     D450W                                 |     RMP resistance conferring SNP    |
+|     _rpoB_    |     _Rv0667_        |     761155                 |     C/T                  |     S450L                                 |     RIF resistance conferring SNP    |
+|     _rpoB_    |     _Rv0667_        |     761155                 |     C/G                  |     D450W                                 |     RIF resistance conferring SNP    |
 |     _rpoB_    |     _Rv0667_        |     762434                 |     T/G                  |     G876G                                 |     CAS/lineage 3 specific SNP       |
 |     _rpoB_    |     _Rv0667_        |     763031                 |     T/C                  |     A1075A                                |     Non-lineage 4 specific SNP       |
 
