@@ -168,7 +168,7 @@ We will now use R to generate a plot to allow us to assess the coverage and dept
 We need to use samtools, a versatile package you will be familiar with, to extract the depth statistics from the .bam alignment file we generated in the previous section. This will generate a file called SR26779702.depth.txt. The command is as follows:
 
 ```
-samtools depth -a SRR26779702.bam > SR26779702.depth.txt
+samtools depth -a SRR26779702.bam > SRR26779702.depth.txt
 ```
 
 Next, we will use the R statistical package to generate a plot based on the data samtools generated. Simply type ‘R’ in to the terminal to initialise the R interface.
@@ -221,8 +221,6 @@ freebayes -f reference.fasta SRR26779702.bam  -F 0.6 | bcftools view -Oz -o SRR2
 
 The `-f` flag specifies the reference genome to use, and the `-F` flag specifies the minimum allele frequency to call a variant. In this case, we are using a threshold of 0.6, which means that any position with an allele frequency below 0.6 will be ignored. The `bcftools view` command is used to convert the output of freebayes to a VCF file, which is a standard format for storing variant data.
 
-![ngs11](../img/ngs11.gif)
-
 Let's take a look inside the VCF file to see what kind of data it contains:
 
 ```
@@ -232,7 +230,7 @@ zcat SRR26779702.vcf.gz | less
 !!! info
     You can scroll down using the down-arrow key on your keyboard. Can you recall the common features of a VCF file? Press 'q' to quit the 'zless' program to continue with the activity:
 
-Next, we need to index the .vcf file. This is a necessary step before we can use the VCF file in the next step of the analysis. The command is as follows:
+Next, we need to index the .vcf.gz file. This is a necessary step before we can use the VCF file in the next step of the analysis. The command is as follows:
 
 ```
 bcftools index SRR26779702.vcf.gz
@@ -380,3 +378,36 @@ The use of front-line genomics during outbreaks is a somewhat novel practice, bu
 
 
 If you have any further questions about this activity or your own applications of this skills learnt during this course, ask a demonstrator.
+
+
+
+## Cheat codes
+
+```
+NanoPlot --fastq SRR26779702_1.fastq.gz -o SRR26779702_qc --N50 
+chopper -q 10 -i SRR26779702_1.fastq.gz > SRR26779702.filt.fastq
+kraken2 --db db/ SRR26779702.filt.fastq --report SRR26779702.report.txt --output SRR26779702.output.txt
+minimap2 reference.fasta SRR26779702.filt.fastq -ax map-ont | samtools sort -o SRR26779702.bam -
+samtools index SRR26779702.bam
+samtools depth -a SRR26779702.bam > SRR26779702.depth.txt
+freebayes -f reference.fasta SRR26779702.bam  -F 0.6 | bcftools view -Oz -o SRR26779702.vcf.gz
+awk '$3<100' SRR26779702.depth.txt | awk '{print $1"\t"$2-1"\t"$2}' > SRR26779702.low-dp.bed
+bcftools consensus -f reference.fasta -p "SRR26779702 " --mask SRR26779702.low-dp.bed -M N SRR26779702.vcf.gz  > SRR26779702.consensus.fasta
+
+NanoPlot --fastq SRR26779678_1.fastq.gz -o SRR26779678_qc --N50 
+chopper -q 10 -i SRR26779678_1.fastq.gz > SRR26779678.filt.fastq
+kraken2 --db db/ SRR26779678.filt.fastq --report SRR26779678.report.txt --output SRR26779678.output.txt
+minimap2 reference.fasta SRR26779678.filt.fastq -ax map-ont | samtools sort -o SRR26779678.bam -
+samtools index SRR26779678.bam
+samtools depth -a SRR26779678.bam > SRR26779678.depth.txt
+freebayes -f reference.fasta SRR26779678.bam  -F 0.6 | bcftools view -Oz -o SRR26779678.vcf.gz
+awk '$3<100' SRR26779678.depth.txt | awk '{print $1"\t"$2-1"\t"$2}' > SRR26779678.low-dp.bed
+bcftools consensus -f reference.fasta -p "SRR26779678 " --mask SRR26779678.low-dp.bed -M N SRR26779678.vcf.gz  > SRR26779678.consensus.fasta
+
+cat SRR26779702.consensus.fasta SRR26779678.consensus.fasta zika_dataset.fasta > unaligned.fasta
+mafft unaligned.fasta > zika_all_aligned.fasta
+
+iqtree -s ./zika_all_aligned.fasta -bb  -nt AUTO
+
+figtree ./zika_all_aligned.fasta.treefile
+```
