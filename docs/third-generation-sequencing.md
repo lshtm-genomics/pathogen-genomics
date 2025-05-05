@@ -236,7 +236,7 @@ Next, we need to index the .vcf.gz file. This is a necessary step before we can 
 bcftools index SRR26779702.vcf.gz
 ```
 
-# Consensus generation
+## Consensus generation
 
 !!! important
     It is important to understand how the reference sequence can effect the consensus outcome. If unchecked, positions with zero coverage will default to reference. This will result in the experimental sequence becoming more like the reference than it actually is. We can use BEDtools mark positions with low coverage which BCFtools will use to mask the zero coverage positions with 'N's. 
@@ -317,7 +317,7 @@ Now we have our multiple sequence alignment, we can now start the phylogenetic i
 
 
 ```
-iqtree -s ./zika_all_aligned.fasta -bb  -nt AUTO
+iqtree -s ./zika_all_aligned.fasta -bb 1000 -nt AUTO
 ```
 
 !!! info
@@ -391,6 +391,7 @@ minimap2 reference.fasta SRR26779702.filt.fastq -ax map-ont | samtools sort -o S
 samtools index SRR26779702.bam
 samtools depth -a SRR26779702.bam > SRR26779702.depth.txt
 freebayes -f reference.fasta SRR26779702.bam  -F 0.6 | bcftools view -Oz -o SRR26779702.vcf.gz
+bcftools index SRR26779702.vcf.gz
 awk '$3<100' SRR26779702.depth.txt | awk '{print $1"\t"$2-1"\t"$2}' > SRR26779702.low-dp.bed
 bcftools consensus -f reference.fasta -p "SRR26779702 " --mask SRR26779702.low-dp.bed -M N SRR26779702.vcf.gz  > SRR26779702.consensus.fasta
 
@@ -401,13 +402,14 @@ minimap2 reference.fasta SRR26779678.filt.fastq -ax map-ont | samtools sort -o S
 samtools index SRR26779678.bam
 samtools depth -a SRR26779678.bam > SRR26779678.depth.txt
 freebayes -f reference.fasta SRR26779678.bam  -F 0.6 | bcftools view -Oz -o SRR26779678.vcf.gz
+bcftools index SRR26779678.vcf.gz
 awk '$3<100' SRR26779678.depth.txt | awk '{print $1"\t"$2-1"\t"$2}' > SRR26779678.low-dp.bed
 bcftools consensus -f reference.fasta -p "SRR26779678 " --mask SRR26779678.low-dp.bed -M N SRR26779678.vcf.gz  > SRR26779678.consensus.fasta
 
 cat SRR26779702.consensus.fasta SRR26779678.consensus.fasta zika_dataset.fasta > unaligned.fasta
 mafft unaligned.fasta > zika_all_aligned.fasta
 
-iqtree -s ./zika_all_aligned.fasta -bb  -nt AUTO
+iqtree -s ./zika_all_aligned.fasta -bb 1000 -nt AUTO
 
 figtree ./zika_all_aligned.fasta.treefile
 ```
