@@ -297,7 +297,7 @@ cat SRR26779702.consensus.fasta SRR26779678.consensus.fasta zika_dataset.fasta >
 Next, we will call up the alignment program and point it in the direction of our unaligned ‘unaligned.fasta’ dataset. The alignment command is made up of the following elements:
 
 ```
-mafft zika_all.fasta > zika_all_aligned.fasta
+mafft unaligned.fasta > zika_all_aligned.fasta
 ```
 
 The `mafft` command calls the alignment program, and the `>` symbol specifies the output file. The `zika_all.fasta` file is the input file, and the `zika_all_aligned.fasta` file is the output file.
@@ -321,16 +321,18 @@ Now we have our multiple sequence alignment, we can now start the phylogenetic i
 iqtree -s ./zika_all_aligned.fasta -bb 1000 -nt AUTO
 ```
 
-!!! info
-    Inferring phylogenies is a complex process can take a very long time, depending on the program you use and the size of the dataset. Because we will not have access to HPC (High Performance Computing) in this activity, we will run only 1 inference. However, in the next step, you will be provided with a tree inferred with the same data, but run with 1000 inferences i.e the program will have been run 1000 times. This gives the program the opportunity to explore the phylogenetic landscape further, so that the resultant tree is the most probabilistically robust.
+
+The `-s` flag specifies the input file, and the `-bb` flag specifies the number of bootstrap replicates to perform. In this case, we are using 1000 bootstrap replicates, which is a common number for phylogenetic analyses. The `-nt` flag specifies the number of threads to use for the analysis. In this case, we are using AUTO, which will automatically detect the number of threads available on your machine. Choosing the right model of evolution is an important step in phylogenetic inference. IQ-Tree will automatically select the best model of evolution for your dataset, based on the Akaike Information Criterion (AIC). The AIC is a statistical method for selecting the best model of evolution based on the likelihood of the data given the model. The AIC is a measure of how well the model fits the data, and it penalises models with more parameters. The model with the lowest AIC score is selected as the best model. If you already know which model you want to use, you can specify it with the `-m` flag. For example, if you want to use the GTR+F+G4 model, you can use the following command:
+
+```
+iqtree -s ./zika_all_aligned.fasta -m GTR+F+G4 -bb 1000 -nt AUTO
+```
 
 
 !!! info
     If you have any questions about this phylogenetic application, or any others you are aware of, don't hesitate to ask a demonstrator.
 
-Now that iqtre has completed its run we can now visualise the results in Figtree – a phylogenetic tree visualisation software package.
-
-**Run the following command:**
+Now that iqtree has completed its run we can now visualise the results in Figtree – a phylogenetic tree visualisation software package. We will use the following command to open up the tree in Figtree:
 
 ```
 figtree ./zika_all_aligned.fasta.treefile
