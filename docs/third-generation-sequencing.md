@@ -23,16 +23,17 @@ We will be using the following software and data in this activity:
 5. samtools - to manipulate the alignment files
 6. freebayes - to call variants from the alignment files
 7. bcftools - to manipulate the variant calling files
-8. iqtree - to infer the phylogenetic tree
-9. figtree - to visualise the phylogenetic tree
-10. igv - to visualise the alignment files
-11. aliview - to visualise the alignment files
-12. R - to generate plots
+8. mafft - to align the genome sequences
+9. iqtree - to infer the phylogenetic tree
+10. figtree - to visualise the phylogenetic tree
+11. igv - to visualise the alignment files
+12. aliview - to visualise the alignment files
+13. R - to generate plots
 
 We will now use mamba to create an environment to install the required software. 
 
 ```
-mamba create -n ont nanoplot chopper kraken2 minimap2 samtools bcftools freebayes iqtree igv figtree aliview r-base
+mamba create -n ont nanoplot chopper kraken2 minimap2 samtools bcftools freebayes mafft iqtree igv figtree aliview r-base
 ```
 
 We will also be using data from the [this study](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0313545). 
