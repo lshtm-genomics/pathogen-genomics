@@ -217,10 +217,11 @@ quit()
     Now that we know the coverage and depth, we can move on to the variant calling. For this, we will use a package called freebayes. Freebayes will look through the alignment and ‘call’ the positions which do not agree with the reference, count them and compile them in to a database called a VCF. Enter the following code in to the terminal to begin the process:
 
 ```
-freebayes -f reference.fasta SRR26779702.bam  -F 0.6 | bcftools view -Oz -o SRR26779702.vcf.gz
+freebayes -f reference.fasta SRR26779702.bam  -F 0.6 --ploidy 1 | bcftools view -Oz -o SRR26779702.vcf.gz
 ```
 
-The `-f` flag specifies the reference genome to use, and the `-F` flag specifies the minimum allele frequency to call a variant. In this case, we are using a threshold of 0.6, which means that any position with an allele frequency below 0.6 will be ignored. The `bcftools view` command is used to convert the output of freebayes to a VCF file, which is a standard format for storing variant data.
+The `-f` flag specifies the reference genome to use, and the `-F` flag specifies the minimum allele frequency to call a variant. In this case, we are using a threshold of 0.6, which means that any position with an allele frequency below 0.6 will be ignored. The `--ploidy` flag specifies the ploidy of the organism. In this case, we are using a ploidy of 1, which means that we are treating the organism as haploid. The `|` symbol is used to pipe the output of the freebayes command to the bcftools command. The `bcftools view` command is used to convert the output of freebayes to a VCF file. The `-Oz` flag specifies that the output should be compressed using gzip, and the `-o` flag specifies the output file name.
+
 
 Let's take a look inside the VCF file to see what kind of data it contains:
 
@@ -393,7 +394,7 @@ kraken2 --db db/ SRR26779702.filt.fastq --report SRR26779702.report.txt --output
 minimap2 reference.fasta SRR26779702.filt.fastq -ax map-ont | samtools sort -o SRR26779702.bam -
 samtools index SRR26779702.bam
 samtools depth -a SRR26779702.bam > SRR26779702.depth.txt
-freebayes -f reference.fasta SRR26779702.bam  -F 0.6 | bcftools view -Oz -o SRR26779702.vcf.gz
+freebayes -f reference.fasta SRR26779702.bam  -F 0.6 --ploidy 1 | bcftools view -Oz -o SRR26779702.vcf.gz
 bcftools index SRR26779702.vcf.gz
 awk '$3<100' SRR26779702.depth.txt | awk '{print $1"\t"$2-1"\t"$2}' > SRR26779702.low-dp.bed
 bcftools consensus -f reference.fasta -p "SRR26779702 " --mask SRR26779702.low-dp.bed -M N SRR26779702.vcf.gz  > SRR26779702.consensus.fasta
@@ -404,7 +405,7 @@ kraken2 --db db/ SRR26779678.filt.fastq --report SRR26779678.report.txt --output
 minimap2 reference.fasta SRR26779678.filt.fastq -ax map-ont | samtools sort -o SRR26779678.bam -
 samtools index SRR26779678.bam
 samtools depth -a SRR26779678.bam > SRR26779678.depth.txt
-freebayes -f reference.fasta SRR26779678.bam  -F 0.6 | bcftools view -Oz -o SRR26779678.vcf.gz
+freebayes -f reference.fasta SRR26779678.bam  -F 0.6 --ploidy 1 | bcftools view -Oz -o SRR26779678.vcf.gz
 bcftools index SRR26779678.vcf.gz
 awk '$3<100' SRR26779678.depth.txt | awk '{print $1"\t"$2-1"\t"$2}' > SRR26779678.low-dp.bed
 bcftools consensus -f reference.fasta -p "SRR26779678 " --mask SRR26779678.low-dp.bed -M N SRR26779678.vcf.gz  > SRR26779678.consensus.fasta
