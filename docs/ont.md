@@ -386,7 +386,9 @@ The use of front-line genomics during outbreaks is a somewhat novel practice, bu
 
 If you have any further questions about this activity or your own applications of this skills learnt during this course, ask a demonstrator.
 
+## Presentation
 
+Here is a link to the presentation slides used during the activity: [MinION2025.pdf](img/MinION2025.pdf)
 
 ## Cheat codes
 
