@@ -378,7 +378,6 @@ Hopefully having completed this activity, you will have gained a better understa
 
 The use of front-line genomics during outbreaks is a somewhat novel practice, but with tools such as the MinION and its downstream applications, it is possible to monitor the dynamics of disease outbreaks in real-time to inform on-the-ground containment strategy and provide a framework for surveillance, both in a preventative and a post-outbreak context.
 
-
 If you have any further questions about this activity or your own applications of this skills learnt during this course, ask a demonstrator.
 
 
