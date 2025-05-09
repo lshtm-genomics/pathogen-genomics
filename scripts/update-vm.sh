@@ -7,3 +7,4 @@ rm pg-ont.tgz
 
 rm -r ~/backup
 
+mamba clean --all --yes
