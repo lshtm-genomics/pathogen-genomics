@@ -1,0 +1,801 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ont/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>TB Genomics - Omics course</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tb-genomics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Omics course" class="md-header__button md-logo" aria-label="Omics course" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Omics course
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TB Genomics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Omics course" class="md-nav__button md-logo" aria-label="Omics course" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Omics course
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pathogen genomics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../microbiome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Microbiomes Practical
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ont-assembly/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ONT Assembly
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ont/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Third Generation Sequencing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    TB Genomics
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    TB Genomics
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intended-learning-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intended learning outcomes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-whole-genome-phylogenetic-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Whole genome phylogenetic analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-in-silico-strain-typing" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. In-silico strain typing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-genetic-variation-visualisation-between-different-strains" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Genetic variation visualisation between different strains
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-investigating-transmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Investigating transmission
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intended-learning-outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intended learning outcomes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-whole-genome-phylogenetic-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Whole genome phylogenetic analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-in-silico-strain-typing" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. In-silico strain typing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-genetic-variation-visualisation-between-different-strains" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Genetic variation visualisation between different strains
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-investigating-transmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Investigating transmission
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tb-genomics">TB Genomics</h1>
+<h2 id="intended-learning-outcomes">Intended learning outcomes</h2>
+<p>The underlying theme of this practical is the use of genomics in understanding TB drug resistance and strain types. The practical is split into three sections. Each using different programs and with a different data type(s). For each section try to:</p>
+<ul>
+<li>Be familiar with the programs presented and the types of analyses the can perform</li>
+<li>Understand the format of the input/output data</li>
+<li>Understand the conclusions you can draw from the analysis</li>
+<li>Think about how you can apply these concepts to different organisms/scenarios</li>
+</ul>
+<h2 id="1-whole-genome-phylogenetic-analysis">1. Whole genome phylogenetic analysis</h2>
+<p>In this section we will be generating phylogenetic trees from whole-genome polymorphisms. The dataset consists of 51 <em>M. tuberculosis</em> isolates, which underwent DNA sequencing using Illumina (Genome Analyser II, 76-bp paired-end) technology. Samples were isolated from 41 treatment-experienced TB patients attending a clinic in Kampala, Uganda, including longitudinal samples from five patients and cases of multi drug-resistant TB (MDR-TB). Raw reads were mapped to the H37Rv reference genome using BWA software and subsequently 6857 SNPs inferred employing SAMTOOLS and BCF/VCFTOOLS.  By concatenating the SNP locations for the 51 samples, a FASTA formatted dataset (uganda_gen.<abbr title="A format used to store sequence data">fasta</abbr>) has been prepared to read into most phylogenetics software. Here we will be using seaview (Gouy, Guindon, &amp; Gascuel, 2010), a graphical user interface for multiple sequence alignment and molecular phylogeny. </p>
+<p>Open up a new seaview window (by typing <code>seaview</code> on the terminal). Select File -&gt; Open and choose "<strong>uganda_gen.<abbr title="A format used to store sequence data">fasta</abbr></strong>"</p>
+<figure>
+<p><img alt="seaview" src="../img/img_1.jpg" />
+    <figcaption>Figure 1 Fasta-formatted sequence alignment of 51 Mtb isolates</figcaption></p>
+</figure>
+<p>The alignment should appear in the seaview main window (Figure 1). The nucleotide bases are colour-coded to visually identify mismatches across sequences. The sequence identifiers on the left hand side of the window (e.g. A70659) consist of the patient ID, where multiple samples have been taken from the same patient the ID is suffixed with a number indicating which timepoint (e.g. A70136_1). A molecular typing method called spoligotyping has also been performed on most of the isolates. Box 1 explains the spoligotyping technique in <em>Mycobacterium tuberculosis</em>. The spoligotypes are in the <code>meta.csv</code> file.</p>
+<p>To launch the phylogenetic analysis go to Trees -&gt; Distance Methods. Select the Neighbor-joining method, Jukes-Cantor distance and Bootstrap with 100 replicates (see Figure 2)</p>
+<figure>
+<p><img alt="seaview" src="../img/img_2.jpg" />
+    <figcaption>Figure 2 Distance analysis window</figcaption></p>
+</figure>
+<figure>
+<p><img alt="seaview" src="../img/img_3.jpg" />
+    <figcaption>Figure 3 Neighbour-joining phylogenetic tree of 51 Mtb isolates</figcaption></p>
+</figure>
+<p>Look at the resulting distance-based tree (Figure 3). Select Br lengths and Bootstrap tick boxes to display branch lengths and bootstrap values respectively.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Box 1 - Spoligotyping
+The popular spoligotyping approach (Kamerbeek et al., 1997) exploits the polymorphism at the direct repeat (DR) locus of Mycobacterium tuberculosis. It is based on the PCR amplification of 43 short unique sequences (termed spacers) found between well-conserved 36-bp DRs and the subsequent hybridisation of the products onto a membrane with oligonucleotides complementary to each spacer. Since strains vary in the occurrence of particular spacers, each sample produces a distinctive spot pattern, which is then translated into a numerical code of 15 digits (known as octal code). Each code or group of related codes correspond to particular strain types such as Beijing, Central-Asian (CAS) or Latin-American (LAM) types.</p>
+<p><figure markdown>
+<img alt="seaview" src="../img/img_4.jpg" />
+    <figcaption>Figure 4 Spoligotying scematic</figcaption>
+</figure></p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Compare whole-genome and spoligotype-based clustering. Which clustering method provides better resolution, i.e. enables a deeper isolate differentiation? In general, whole-genome SNP clustering provides greater resolution since isolates from the same spoligotype strain can be distinguished. How can these differences be explained?</p>
+</div>
+<p>Isolates sequenced at different time points from the same patient are closely related and cluster together with very short branch lengths among them. This is the case of A70136, A70763 and A70144 patients pointed with green arrows in Figure 3. On the contrary, isolates from patient A70067 and A70011 (red arrows) happen to be placed at distant positions in the tree and having different spoligotypes. <strong>In which terms could this be explained? We will now explore this for patient A70067.</strong></p>
+<p>You have seen that genome alignments can be used to construct phylogenetic trees to understand the population structure of samples. They tend to cluster by strain-type In the Kampalan set, but this also holds across a global set of samples. Spoligotyping is one way of defining strain-type, but <em>M. tuberculosis</em> sensu stricto can be classified into seven lineages, including four that are predominant; 1 Indo-Oceanic, 2 East-Asian including Beijing, 3 East-African-Indian, 4 Euro-American. These lineages are postulated to have differential roles in pathogenesis, disease outcome and variation in vaccine efficacy. For example, modern lineages, such as Beijing and Euro-American Haarlem strains exhibit more virulent phenotypes compared to ancient lineages, such as East African Indian (Coll et al, 2014).</p>
+<p>Before you close seaview, save the phylogenetic tree be selecting “File -&gt; Save rooted tree” using <code>uganda_gen.nwk</code> as the file name.</p>
+<h2 id="2-in-silico-strain-typing">2. In-silico strain typing</h2>
+<p>Whole genome sequencing is making its way into a clinical setting to assist with patient management. Recent reports of sequencing <em>M. tuberculosis</em> from sputum from suspected drug resistant patients (Whitney et al, 2015) suggests it has a role in the management of tuberculosis. An exhaustive library of 1325 drug resistance markers has been established and integrated into an online tool that rapidly analyses raw sequence data and predicts resistance (Coll et al, 2015; Phelan et al 2019). The online tool is called “TB-profiler” and can be accessed via https://tbdr.lshtm.ac.uk/</p>
+<p>Click on upload and drag and drop in the A70067_1.<abbr title="A format used to store sequence data with qualite values for each nucleotide">fastq</abbr>.gz file to the upload box, change the “pairing” option to “single” and press “Submit”. The output will take a few minutes to generate, as there are many millions of reads. Similarly, run it for the other sample from patient A70067 (A70067_2.<abbr title="A format used to store sequence data with qualite values for each nucleotide">fastq</abbr>.gz). </p>
+<figure>
+<p><img alt="tb-profiler" src="../img/img_5.jpg" />
+    <figcaption>Figure 5 tb-profiler upload screen</figcaption></p>
+</figure>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><img alt="" src="https://media.tenor.com/rec5dlPBK2cAAAAd/mr-bean-waiting.gif" /></p>
+<p>If you are feeling extra impatient today you can find pre-computed results here:</p>
+<ul>
+<li>A70067_1 - <a href="https://tbdr.lshtm.ac.uk/results/0ba50688-d874-44e7-93c0-f78ec7334730">https://tbdr.lshtm.ac.uk/results/0ba50688-d874-44e7-93c0-f78ec7334730</a></li>
+<li>A70067_2 - <a href="https://tbdr.lshtm.ac.uk/results/1dcefc81-70c1-40e4-8aa5-6ce03ee746bf">https://tbdr.lshtm.ac.uk/results/1dcefc81-70c1-40e4-8aa5-6ce03ee746bf</a></li>
+</ul>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>How do the profiles differ from each other? Is this what you expected, especially when comparing to the original phylogenetic tree visualised in seaview? Are there any situations where this profiling approach could lead to an inconclusive result? </p>
+</div>
+<h2 id="3-genetic-variation-visualisation-between-different-strains">3. Genetic variation visualisation between different strains</h2>
+<p>Here we use the Broad Institute's IGV genomic visualisation tool to consider SNP and structural variation differences between Kampalan Mtb alignments. </p>
+<p>Launch the IGV tool (typing “igv” on the command-line)</p>
+<p>The IGV application window is divided into several controls and panels (see figure below). If sample attributes are loaded, they will be colour-coded and displayed as columns on the left-hand side of its corresponding identifier.</p>
+<figure>
+<p><img alt="tb-profiler" src="../img/img_6.jpg" />
+    <figcaption>Figure 6 IGV overview panels and features</figcaption></p>
+</figure>
+<p>We need to load in the reference genome and annotation into IGV. As you have done in previous practicals load the reference genome (MTB.fa) and annotation files (MTB.gff). </p>
+<p>You should now see the genome sequence in the top panel and the annotation in the bottom panel. Remember, the annotation file contains information about the location of genes, their function and other features of interest.</p>
+<figure>
+<p><img alt="tb-profiler" src="../img/img_7.jpg" />
+    <figcaption>Figure 7 IGV view of the reference genome and annotation</figcaption></p>
+</figure>
+<p>We will be exploring the genomic data for samples A70067_1 (CAS2, lineage3, September 2003) and A70067_2 (T2, lineage 4, April 2004) which, as discussed in the previous exercise, were isolated from the same patient but are different strains being introduced at different times. We should now load in the BAM files (alignment files) from these two different strains in the previous loaded IGV environment</p>
+<p>Click on File &gt; Load from file... and select the corresponding BAM files (A70067_1.bam and A70067_2.bam). Go to the chromosome region harbouring the <em>Rv3738c</em> gene (coordinates 4,189,463 to 4,190,410 bp) using the Search Box. Type in ‘Rv3738c’ or ‘Chromosome:4,189,463-4,190,410’ in the search box. </p>
+<p>The IGV screen should now be focused on that gene, but try zooming out and in.</p>
+<figure>
+<p><img alt="tb-profiler" src="../img/img_8.jpg" />
+    <figcaption>Figure 8 Figure 4 IGV view showing a deletion at the <em>Rv3738c</em> locus in A70067_1 isolate</figcaption></p>
+</figure>
+<p><strong>Take a closer look at both the BAM and coverage tracks around <em>Rv3738c</em> gene. A deletion with respect to the reference can be spotted in A70067_1, whilst is absent in A70067_2.</strong> Several signatures are indicative of such event. The most obvious is the lack of read coverage at the region. Large deletions such as this one should also have paried reads that span the deletion junction. To view this, right click on the coverage track and select "View as pairs". This will show you the paired reads that are mapped to the reference genome. Can you see this evidence in the A70067_1 sample? What about in A70067_2?</p>
+<p>Samples belonging to CAS2 strains (e.g. A70067_1) are reported to have a deletion covering this region while other strains types are not. These regions are often called Regions of Difference (RD), and some RDs and SNPs are associated with strain-types (Coll et al, 2014). </p>
+<p>As shown earlier, Isolates A70067_1 and A70067_2 exhibit different drug susceptibility profiles (see Table 1). Both isolates were tested for Isoniazid (INH) and Rifampicin (RIF) anti-TB drugs, with A70067_1 being susceptible and A70067_2 multidrug-resistant. </p>
+<table>
+<thead>
+<tr>
+<th>Patient</th>
+<th>Date</th>
+<th>SIT</th>
+<th>Spoligotype family (lineage)</th>
+<th>Drug     INH RIF</th>
+<th>Compared      to</th>
+<th>SNPs      All</th>
+<th>DR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A70067_1</td>
+<td>Sep-03</td>
+<td>288</td>
+<td>CAS2 (lineage 3)</td>
+<td>S  S</td>
+<td>H37Rv</td>
+<td>1060 (539)</td>
+<td>15 (9)</td>
+</tr>
+<tr>
+<td>A70067_2</td>
+<td>Apr-04</td>
+<td>2867</td>
+<td>T2 (lineage 4)</td>
+<td>R  R</td>
+<td>H37Rv</td>
+<td>475 (246)</td>
+<td>11 (9)</td>
+</tr>
+</tbody>
+</table>
+<p>Drugs: INH = Isoniazid , RIF=  Rifampicin, R = resistant, S = susceptible; DR = drug resistant candidates. SNP (non-synonymous changes). </p>
+<p>The primary mechanism for acquiring resistance in <em>M. tuberculosis</em> is the accumulation of point mutations (SNPs) in genes coding for drug targets or converting enzymes, and drug resistant disease arises through selection of mutants during inadequate treatment (Zhang &amp; Vilcheze, 2005) or new transmitted resistant strains. <strong>We will investigate polymorphism differences between A70067_1 and A70067_2 isolates in katG (<em>Rv1908c</em>, coordinates: 2153896-2156118 bp) and rpoB (<em>Rv0667</em>, coordinates: 759810-763328 bp) genes</strong>, known to be associated with INH and RIF resistance respectively.</p>
+<p><strong>Make use of the Search Box functionality again to go to the genes of interest. Try to spot differences between the susceptible and resistant isolates in terms of presence/absence of SNPs</strong> (Figure 9). Note that lineage-specific SNPs may also be present. Table 2 contains drug resistance and lineage-specific SNPs found in the rpoB and katG genes. Mismatches are colour-coded, while nucleotides matching the reference are not. Nevertheless, not all mismatches are to be considered SNPs since some differences are due to sequencing errors. On average, 1 in every 1000 bases in the reads is expected to be incorrect. However, the high depth of coverage achieved by current sequencing platforms means SNPs can be distinguished from sequencing errors. True SNPs are expected to be mismatches occurring consistently across multiple reads at the same reference position, whereas mismatches at spurious locations are likely to be caused by sequencing errors.</p>
+<figure>
+<p><img alt="tb-profiler" src="../img/img_9.jpg" />
+    <figcaption>Figure 9 IGV view focused on rpoB gene (locus tag: <em>Rv0667</em>, coordinates: 759810-763328 bp)</figcaption></p>
+</figure>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Can you identify the mutations in the katG and rpoB genes that are associated with INH and RIF resistance respectively? How do these mutations differ between the two isolates? (Use the table below to help you).</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Gene</th>
+<th>Locus Name</th>
+<th>Chromosome position</th>
+<th>Nucleotide change</th>
+<th>Amino acid change and codon number</th>
+<th>Annotation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>katG</em></td>
+<td><em>Rv1908c</em></td>
+<td>2155168</td>
+<td>C/A</td>
+<td>S315I</td>
+<td>INH resistance conferring SNP</td>
+</tr>
+<tr>
+<td><em>katG</em></td>
+<td><em>Rv1908c</em></td>
+<td>2155168</td>
+<td>C/T</td>
+<td>S315N</td>
+<td>INH resistance conferring SNP</td>
+</tr>
+<tr>
+<td><em>katG</em></td>
+<td><em>Rv1908c</em></td>
+<td>2155168</td>
+<td>C/G</td>
+<td>S315T</td>
+<td>INH resistance conferring SNP</td>
+</tr>
+<tr>
+<td><em>katG</em></td>
+<td><em>Rv1908c</em></td>
+<td>2154724</td>
+<td>C/A</td>
+<td>R463L</td>
+<td>Non-lineage 4 specific SNP</td>
+</tr>
+<tr>
+<td><em>rpoB</em></td>
+<td><em>Rv0667</em></td>
+<td>761155</td>
+<td>C/T</td>
+<td>S450L</td>
+<td>RIF resistance conferring SNP</td>
+</tr>
+<tr>
+<td><em>rpoB</em></td>
+<td><em>Rv0667</em></td>
+<td>761155</td>
+<td>C/G</td>
+<td>D450W</td>
+<td>RIF resistance conferring SNP</td>
+</tr>
+<tr>
+<td><em>rpoB</em></td>
+<td><em>Rv0667</em></td>
+<td>762434</td>
+<td>T/G</td>
+<td>G876G</td>
+<td>CAS/lineage 3 specific SNP</td>
+</tr>
+<tr>
+<td><em>rpoB</em></td>
+<td><em>Rv0667</em></td>
+<td>763031</td>
+<td>T/C</td>
+<td>A1075A</td>
+<td>Non-lineage 4 specific SNP</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-investigating-transmission">4. Investigating transmission</h2>
+<p>Using web-based tools is a great way to run software without the need for installation or knowledge of Linux or the command-line. However, these are often not convenient to use if you have many samples, or don’t have access to the internet. Many of the tools that we have used today are also available as command-line software (or have equivalents). To demonstrate this, we will run tb-profiler on our terminal. </p>
+<p>Before running tb-profiler we will need to activate the environment using the following command:</p>
+<div class="highlight"><pre><span></span><code>conda activate tb-profiler
+</code></pre></div>
+<p>After this we can run the profiling as we have done using tbdr.lshtm.ac.uk. The following commands will change directory to where the data is and profile the first sample:</p>
+<div class="highlight"><pre><span></span><code>cd ~/Data/tb
+tb-profiler profile --read1 A70067_1.fastq.gz --prefix A70067_1 --txt
+</code></pre></div>
+<p>There are a few arguments that we have given:</p>
+<ul>
+<li><code>--read1</code> : This allows us to specify the input <abbr title="A format used to store sequence data with qualite values for each nucleotide">fastq</abbr> file</li>
+<li><code>--prefix</code> : This specifies the prefix for the output files</li>
+<li><code>--txt</code> : This ensures a text output will be created </li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Have a look at the output (~/Data/tb/results/A70067_1.results.txt). Does it look the same as the profile we got from tbdr.lshtm.ac.uk? </p>
+</div>
+<p><strong>Try running the command for A70067_2 by changing the appropriate parameters.</strong></p>
+<p>We can then combine several runs of tb-profiler into a single summary file with the collate function:</p>
+<div class="highlight"><pre><span></span><code>tb-profiler collate
+</code></pre></div>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Have a look at the output file ~/Data/tb/tbprofiler.txt using a text editor.  Do the profiles look different?</p>
+</div>
+<p>Now we’ll run tb-profiler on all samples. Running it from <abbr title="A format used to store sequence data with qualite values for each nucleotide">fastq</abbr> files can take some time as it must go through all processing steps including trimming, mapping and variant calling. As a result it can take a while to run. Tb-profiler also can take input from vcf files which just contain variants. To run the pipeline using the provided vcfs the command should look like:</p>
+<div class="highlight"><pre><span></span><code>tb-profiler profile --vcf A70067_1.vcf.gz --prefix A70067_1 --txt
+</code></pre></div>
+<p>Here we have just switched the <code>--read1</code> argument for the <code>--vcf</code> argument. </p>
+<p>To establish if transmission has occurred, we frequently calculate snp-distance between pairs of samples and pairs with a distance less than a pre-defined cutoff (e.g. 10 snps) can be linked. We can investigate this by telling tb-profiler to calculate snp-distances and save the results of any pairs below a threshold. To do we can add <code>--snp_dist 20</code> to the command. We have used a relaxed value of 20 here as we can always make this more stringent after.</p>
+<p>Finally, it can be a bit repetitive to run the same command for many isolates. Ideally, we would like to harness the power of automation that is possible on the command-line so that we can profile all samples with just one command. Tb-profiler contains a batch mode that enables you set up your commands using a csv file that tells the pipeline where to look for the input files. To do this we’ll create a csv file using some command-line tools:</p>
+<div class="highlight"><pre><span></span><code>ls *.vcf.gz | awk &#39;BEGIN {print &quot;id,vcf&quot;} {print $1&quot;,&quot;$1}&#39; | sed &#39;s/.vcf.gz//&#39; &gt; vcf_files.csv
+</code></pre></div>
+<p>This will create a csv file with two columns: id and vcf. Have a look at the format by running <code>head vcf_files.csv</code>. Now you can tell tb-profiler to run the pipeline for all samples in the csv file by running:</p>
+<div class="highlight"><pre><span></span><code>tb-profiler batch --csv vcf_files.csv --args &quot;--snp_dist 20&quot;
+</code></pre></div>
+<p>You’ll notice we didn’t give the <code>--vcf</code> and <code>--prefix</code> arguments as these are read from the csv file. We do have to specify any additional arguments with <code>--args</code> followed by the arguments as you would type them for a single sample command.</p>
+<p>After it has finished running we can again combine the output files into a single report by running:</p>
+<div class="highlight"><pre><span></span><code>tb-profiler collate --itol
+</code></pre></div>
+<p>This will produce in addition to the <strong>tbprofiler.txt</strong> output file it will also create a file called <strong>tbprofiler.transmission_graph.json</strong>. We will visualise this in a web-based tool that you can open in your web browser at <a href="https://jodyphelan.github.io/tgv">https://jodyphelan.github.io/tgv</a></p>
+<p>After the page loads click on the upload box and select the .json file. This represents the samples as nodes and where pairs of samples have a snp-distance less or equal to the cutoff an edge will be drawn between them (Figure 10). </p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>Does this agree with the phylogenetic tree? What happens if you alter the snp-distance cutoff to be more conservative (e.g. 10 SNPs)? What do you think is the best cutoff to use?</p>
+</div>
+<figure>
+<p><img alt="tb-profiler" src="../img/img_10.jpg" />
+    <figcaption>Figure 10 A transmission network generated by tb-profiler</figcaption></p>
+</figure>
+<p>Finally, the collate command also produces annotation config files that can be used with iTOL which is a web-based phylogenetic tree viewer. To do this open <a href="https://itol.embl.de/">https://itol.embl.de/</a> and select “upload” on the top navbar. Click browse and select the .nwk  file that you saved at the beginning of the practical, followed by “upload”. You should now see the tree as you have seen before in seaview. To load the annotations simple drag and drop the following files onto the tree view:
+-   Tbprofiler.lineage.itol.txt – a strip with the main lineage annotated.
+-   Tbprofiler.dr.itol.txt – a strip indicating the drug resistance type.
+-   Tbprofiler.dr.individ.itol.txt – circles for each individual drug where a solid filled circle indicates resistance.</p>
+<figure>
+<p><img alt="tb-profiler" src="../img/img_11.jpg" />
+    <figcaption>Figure 11 Annotations profuced by tb-profiler visualised with iTOL</figcaption></p>
+</figure>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.tooltips", "navigation.instant"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
