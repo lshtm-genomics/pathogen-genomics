@@ -56,7 +56,7 @@ We will be using the `flye` assembler to perform the assembly. The a template of
 flye --nano-hq <fastq> --out-dir <output_dir> --threads 2 
 ```
 
-Where `<fastq>` is the path to the fastq file, `<output_dir>` is the path to the output directory and `--threads` is the number of threads to use.
+Where `<fastq>` is the path to the fastq file, `<output_dir>` is the path to the output directory and `--threads` is the number of threads to use. Flye will create a file called `assembly.fasta` in the output directory. This file contains the assembled genome, which is a collection of contigs.
 
 
 ## Assembly QC
@@ -81,3 +81,34 @@ firefox <output_dir>/report.html
     What is the number of contigs in the assembly?
 
     What is the total length of the assembly? How does this compare with the expected Mtb genome size?
+
+    How to these metrics compare to the short-read assembly you generated earlier in the course?
+
+## Annotation
+
+We will be using `prokka` to annotate the assembly. The command is as follows:
+
+```
+prokka --outdir <output_dir>  <assembly.fasta> --cpus 2
+```
+
+Where `<output_dir>` is the path to the output directory, `<assembly.fasta>` is the path to the assembly file and `--cpus` is the number of threads to use. In the output directory there will be several files, including files that end in:
+
+1. .fna - a fasta file with the nucleotide sequence of the genome
+2. .ffn - a fasta file with the nucleotide sequence of the coding regions
+3. .faa - a fasta file with the amino acid sequence of the coding regions
+4. .gff - a text file with the location of genes 
+
+
+# Comparing protein sequences
+
+Open up the `.faa` file in a text editor (by double clicking on it in the file browser or running `open <filename>` on the terminal). You will see that the file contains the protein sequences of the coding regions. 
+
+As we saw in the previous session, RpoB is a protein that is the target of the rifampicin antibiotic. We can use the protein sequence of RpoB to identify the presence of mutations that confer resistance to rifampicin. Look for the protein sequence of RpoB in the `.faa` file. You can search for it by using the command `ctrl + f` and typing `RNA polymerase subunit beta`. 
+
+On the terminal run `aliview` to open the aliview program. Copy in the protein sequence of RpoB from the `.faa` file. You can do this by selecting the sequence in the text editor and using `ctrl + c` to copy it. Then in aliview, use `ctrl + v` to paste it.
+
+Now copy the protein sequence from https://mycobrowser.epfl.ch/genes/Rv0667 and paste it into aliview.
+
+!!! question
+    The two sequences are exactly same length, so in this case we don't need to align them. What are the differences between the two sequences? Are any of the differences in the region that is known to confer resistance to rifampicin? (use the table from the TB genomics session to help you with this).
