@@ -25,7 +25,59 @@ We will be using the following software and data in this activity:
 We will now use mamba to create an environment to install the required software. 
 
 ```
-mamba create -n ont-assembly flye quast prokka 
+mamba create -n ont-assembly flye quast prokka nanoplot
 ```
 
-We will also be using data from the [this study](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0313545). 
+After it has finished you can activate the environment using:
+
+```
+mamba activate ont-assembly
+```
+
+We will also be using data from the [this study](https://journals.plos.org/globalpublichealth/article?id=10.1371/journal.pgph.0004099#sec013). 
+
+We are going to be assembling the data for one of the samples from this study. You should download the fastq data from the ENA browser. The data is available under the accession `ERR12245902`. 
+
+Create a folder called `ont-assembly` in your `data` directory. After you download the data, you can move it from your `Downloads` folder to the `ont-assembly` folder. 
+
+## Read QC
+
+Try to use nanoplot to summarise the quality of the reads. 
+
+!!! question
+    What is the average read length of the reads?
+
+
+## Assembly
+
+We will be using the `flye` assembler to perform the assembly. The a template of the command is as follows:
+
+```
+flye --nano-hq <fastq> --out-dir <output_dir> --threads 2 
+```
+
+Where `<fastq>` is the path to the fastq file, `<output_dir>` is the path to the output directory and `--threads` is the number of threads to use.
+
+
+## Assembly QC
+
+We will be using `quast` to perform the assembly quality control. The command is as follows:
+
+```
+quast.py <assembly.fasta> -o <output_dir> --threads 2
+```
+
+Where `<assembly.fasta>` is the path to the assembly file and `<output_dir>` is the path to the output directory.
+
+Quast will generate a number of files in the output directory. Have a look at the `report.html` file by opening it via the file browser or using the command:
+
+```
+firefox <output_dir>/report.html
+```
+
+!!! question
+    What is the N50 of the assembly?
+
+    What is the number of contigs in the assembly?
+
+    What is the total length of the assembly? How does this compare with the expected Mtb genome size?
