@@ -40,6 +40,7 @@ We will now use mamba to create an environment to install the required software.
 
 ```
 mamba create -n ont nanoplot chopper kraken2 minimap2 samtools bcftools freebayes mafft iqtree igv figtree aliview r-base
+mamba activate ont
 ```
 
 We will also be using data from the [this study](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0313545). 
